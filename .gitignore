@@ -42,3 +42,12 @@ Thumbs.db
 extracted_doc_text.txt
 .pytest_cache/
 tmp/
+
+# Node / Frontend
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.vite/
+
+

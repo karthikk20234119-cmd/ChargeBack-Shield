@@ -39,4 +39,5 @@ class Dispute(Base):
     submissions: Mapped[List["ContestSubmission"]] = relationship("ContestSubmission", back_populates="dispute", cascade="all, delete-orphan")
     submission_audits: Mapped[List["ContestSubmissionAudit"]] = relationship("ContestSubmissionAudit", back_populates="dispute", cascade="all, delete-orphan")
     lifecycle_snapshots: Mapped[List["DisputeLifecycleSnapshot"]] = relationship("DisputeLifecycleSnapshot", back_populates="dispute", cascade="all, delete-orphan")
+    operational_alerts: Mapped[List["OperationalAlert"]] = relationship("OperationalAlert", back_populates="dispute", cascade="all, delete-orphan")
 

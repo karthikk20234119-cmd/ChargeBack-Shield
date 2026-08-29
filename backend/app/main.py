@@ -19,6 +19,8 @@ from backend.app.api.contest_submission_reconciliation import contest_submission
 from backend.app.api.dispute_lifecycle_sync import dispute_lifecycle_sync_router
 from backend.app.api.dashboard import dashboard_router
 from backend.app.api.audit_reporting import audit_reporting_router
+from backend.app.api.operational_alerts import operational_alerts_router
+from backend.app.api.analytics import analytics_router
 
 logger = logging.getLogger("chargeback_shield")
 logging.basicConfig(
@@ -64,6 +66,8 @@ app.include_router(contest_submission_reconciliation_router)
 app.include_router(dispute_lifecycle_sync_router)
 app.include_router(dashboard_router)
 app.include_router(audit_reporting_router)
+app.include_router(operational_alerts_router)
+app.include_router(analytics_router)
 
 @app.get("/")
 async def root():

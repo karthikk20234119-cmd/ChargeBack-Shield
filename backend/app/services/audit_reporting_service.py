@@ -199,7 +199,7 @@ async def get_dispute_audit_timeline(
                     event_timestamp=art.created_at,
                     explanation=f"Processed artifact page {art.page_number} for document {d.id}",
                     source_ids=[d.id, art.id],
-                    metadata={"page_number": art.page_number, "artifact_path": art.artifact_path},
+                    metadata={"page_number": art.page_number, "artifact_path": getattr(art, "file_path", getattr(art, "artifact_path", None))},
                     integrity_hash=_calculate_event_hash(ev_art_id, "ARTIFACT_PROCESSED", art.id, art.created_at.isoformat()),
                 )
             )
