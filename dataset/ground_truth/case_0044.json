@@ -1,0 +1,23 @@
+{
+  "case_id": "case_0044",
+  "category": "AMBIGUOUS",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0044",
+    "payment_id": "pay_synth_0044",
+    "order_id": "ord_synth_0044",
+    "amount": 95900.0,
+    "currency": "INR",
+    "customer_name": "Kathy Holmes",
+    "awb_number": "1Z9998880044",
+    "delivery_date": "2026-08-16"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0044_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    }
+  ],
+  "expected_outcome": "HUMAN_REVIEW",
+  "contradiction_reason": "Missing shipping/delivery proof document"
+}

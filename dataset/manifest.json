@@ -1,0 +1,14 @@
+{
+  "dataset_version": "1.0",
+  "seed": 12345,
+  "generation_timestamp": "2026-08-26T14:17:35.317264Z",
+  "total_cases": 100,
+  "total_documents": 210,
+  "categories": {
+    "VALID": 40,
+    "AMBIGUOUS": 20,
+    "INVALID": 20,
+    "ADVERSARIAL": 10,
+    "TECHNICAL_FAILURE": 10
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "case_id": "case_0024",
+  "category": "VALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0024",
+    "payment_id": "pay_synth_0024",
+    "order_id": "ord_synth_0024",
+    "amount": 129900.0,
+    "currency": "INR",
+    "customer_name": "Spencer Walters",
+    "awb_number": "1Z9998880024",
+    "delivery_date": "2026-08-20"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0024_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0024_2",
+      "filename": "shipping_receipt.pdf",
+      "document_type": "shipping_proof"
+    },
+    {
+      "document_id": "doc_0024_3",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "ALLOW",
+  "contradiction_reason": null
+}

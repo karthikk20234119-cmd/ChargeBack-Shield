@@ -1,0 +1,23 @@
+{
+  "case_id": "case_0050",
+  "category": "AMBIGUOUS",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0050",
+    "payment_id": "pay_synth_0050",
+    "order_id": "ord_synth_0050",
+    "amount": 42200.0,
+    "currency": "INR",
+    "customer_name": "Thomas Harris",
+    "awb_number": "1Z9998880050",
+    "delivery_date": "2026-08-14"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0050_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    }
+  ],
+  "expected_outcome": "HUMAN_REVIEW",
+  "contradiction_reason": "Missing shipping/delivery proof document"
+}

@@ -1,0 +1,28 @@
+{
+  "case_id": "case_0073",
+  "category": "INVALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0073",
+    "payment_id": "pay_synth_0073",
+    "order_id": "ord_synth_0073",
+    "amount": 49300.0,
+    "currency": "INR",
+    "customer_name": "Gary Jones",
+    "awb_number": "1Z9998880073",
+    "delivery_date": "2026-08-18"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0073_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0073_2",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "REJECT",
+  "contradiction_reason": "Delivery date is in the future"
+}

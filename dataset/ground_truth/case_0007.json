@@ -1,0 +1,33 @@
+{
+  "case_id": "case_0007",
+  "category": "VALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0007",
+    "payment_id": "pay_synth_0007",
+    "order_id": "ord_synth_0007",
+    "amount": 20900.0,
+    "currency": "INR",
+    "customer_name": "Laura Doyle",
+    "awb_number": "1Z9998880007",
+    "delivery_date": "2026-08-14"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0007_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0007_2",
+      "filename": "shipping_receipt.pdf",
+      "document_type": "shipping_proof"
+    },
+    {
+      "document_id": "doc_0007_3",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "ALLOW",
+  "contradiction_reason": null
+}

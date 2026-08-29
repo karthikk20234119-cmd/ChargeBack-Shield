@@ -1,0 +1,28 @@
+{
+  "case_id": "case_0066",
+  "category": "INVALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0066",
+    "payment_id": "pay_synth_0066",
+    "order_id": "ord_synth_0066",
+    "amount": 10600.0,
+    "currency": "INR",
+    "customer_name": "Bryan Kim",
+    "awb_number": "1Z9998880066",
+    "delivery_date": "2026-08-16"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0066_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0066_2",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "REJECT",
+  "contradiction_reason": "Invoice amount does not match disputed charge amount"
+}

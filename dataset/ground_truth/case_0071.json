@@ -1,0 +1,28 @@
+{
+  "case_id": "case_0071",
+  "category": "INVALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0071",
+    "payment_id": "pay_synth_0071",
+    "order_id": "ord_synth_0071",
+    "amount": 104500.0,
+    "currency": "INR",
+    "customer_name": "Robert Kelly",
+    "awb_number": "1Z9998880071",
+    "delivery_date": "2026-08-08"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0071_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0071_2",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "REJECT",
+  "contradiction_reason": "Invoice amount does not match disputed charge amount"
+}

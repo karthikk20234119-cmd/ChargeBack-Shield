@@ -1,0 +1,33 @@
+{
+  "case_id": "case_0008",
+  "category": "VALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0008",
+    "payment_id": "pay_synth_0008",
+    "order_id": "ord_synth_0008",
+    "amount": 9800.0,
+    "currency": "INR",
+    "customer_name": "Samantha Roman",
+    "awb_number": "1Z9998880008",
+    "delivery_date": "2026-08-13"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0008_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0008_2",
+      "filename": "shipping_receipt.pdf",
+      "document_type": "shipping_proof"
+    },
+    {
+      "document_id": "doc_0008_3",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "ALLOW",
+  "contradiction_reason": null
+}

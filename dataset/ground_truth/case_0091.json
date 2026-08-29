@@ -1,0 +1,23 @@
+{
+  "case_id": "case_0091",
+  "category": "TECHNICAL_FAILURE",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0091",
+    "payment_id": "pay_synth_0091",
+    "order_id": "ord_synth_0091",
+    "amount": 133100.0,
+    "currency": "INR",
+    "customer_name": "Stephanie Wilson",
+    "awb_number": "1Z9998880091",
+    "delivery_date": "2026-08-05"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0091_1",
+      "filename": "document.exe",
+      "document_type": "unknown"
+    }
+  ],
+  "expected_outcome": "REJECT",
+  "contradiction_reason": "Unsupported document extension (.exe)"
+}

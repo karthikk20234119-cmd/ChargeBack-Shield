@@ -1,0 +1,33 @@
+{
+  "case_id": "case_0014",
+  "category": "VALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0014",
+    "payment_id": "pay_synth_0014",
+    "order_id": "ord_synth_0014",
+    "amount": 29500.0,
+    "currency": "INR",
+    "customer_name": "Raymond Church DVM",
+    "awb_number": "1Z9998880014",
+    "delivery_date": "2026-08-11"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0014_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0014_2",
+      "filename": "shipping_receipt.pdf",
+      "document_type": "shipping_proof"
+    },
+    {
+      "document_id": "doc_0014_3",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "ALLOW",
+  "contradiction_reason": null
+}

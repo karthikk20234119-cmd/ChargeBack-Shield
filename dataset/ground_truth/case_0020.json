@@ -1,0 +1,33 @@
+{
+  "case_id": "case_0020",
+  "category": "VALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0020",
+    "payment_id": "pay_synth_0020",
+    "order_id": "ord_synth_0020",
+    "amount": 96100.0,
+    "currency": "INR",
+    "customer_name": "Toni Palmer",
+    "awb_number": "1Z9998880020",
+    "delivery_date": "2026-08-15"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0020_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0020_2",
+      "filename": "shipping_receipt.pdf",
+      "document_type": "shipping_proof"
+    },
+    {
+      "document_id": "doc_0020_3",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "ALLOW",
+  "contradiction_reason": null
+}

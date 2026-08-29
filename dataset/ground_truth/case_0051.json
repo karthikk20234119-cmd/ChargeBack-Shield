@@ -1,0 +1,23 @@
+{
+  "case_id": "case_0051",
+  "category": "AMBIGUOUS",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0051",
+    "payment_id": "pay_synth_0051",
+    "order_id": "ord_synth_0051",
+    "amount": 66400.0,
+    "currency": "INR",
+    "customer_name": "Brandi Lewis",
+    "awb_number": "1Z9998880051",
+    "delivery_date": "2026-08-15"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0051_1",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "HUMAN_REVIEW",
+  "contradiction_reason": "Low image clarity and blurry delivery receipt scan"
+}

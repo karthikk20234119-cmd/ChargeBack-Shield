@@ -1,0 +1,28 @@
+{
+  "case_id": "case_0076",
+  "category": "INVALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0076",
+    "payment_id": "pay_synth_0076",
+    "order_id": "ord_synth_0076",
+    "amount": 125400.0,
+    "currency": "INR",
+    "customer_name": "Justin Dawson",
+    "awb_number": "1Z9998880076",
+    "delivery_date": "2026-08-18"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0076_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0076_2",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "REJECT",
+  "contradiction_reason": "Invoice amount does not match disputed charge amount"
+}

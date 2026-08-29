@@ -1,0 +1,23 @@
+{
+  "case_id": "case_0057",
+  "category": "AMBIGUOUS",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0057",
+    "payment_id": "pay_synth_0057",
+    "order_id": "ord_synth_0057",
+    "amount": 70400.0,
+    "currency": "INR",
+    "customer_name": "Ryan Nelson",
+    "awb_number": "1Z9998880057",
+    "delivery_date": "2026-08-10"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0057_1",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "HUMAN_REVIEW",
+  "contradiction_reason": "Low image clarity and blurry delivery receipt scan"
+}

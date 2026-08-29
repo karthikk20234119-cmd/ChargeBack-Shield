@@ -1,0 +1,33 @@
+{
+  "case_id": "case_0012",
+  "category": "VALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0012",
+    "payment_id": "pay_synth_0012",
+    "order_id": "ord_synth_0012",
+    "amount": 144500.0,
+    "currency": "INR",
+    "customer_name": "Michael Miller",
+    "awb_number": "1Z9998880012",
+    "delivery_date": "2026-08-15"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0012_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0012_2",
+      "filename": "shipping_receipt.pdf",
+      "document_type": "shipping_proof"
+    },
+    {
+      "document_id": "doc_0012_3",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "ALLOW",
+  "contradiction_reason": null
+}

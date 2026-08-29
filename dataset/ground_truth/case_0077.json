@@ -1,0 +1,28 @@
+{
+  "case_id": "case_0077",
+  "category": "INVALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0077",
+    "payment_id": "pay_synth_0077",
+    "order_id": "ord_synth_0077",
+    "amount": 47600.0,
+    "currency": "INR",
+    "customer_name": "Carolyn Pratt",
+    "awb_number": "1Z9998880077",
+    "delivery_date": "2026-08-10"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0077_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0077_2",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "REJECT",
+  "contradiction_reason": "Airway Bill number mismatch between logistics and dispute"
+}

@@ -1,0 +1,23 @@
+{
+  "case_id": "case_0059",
+  "category": "AMBIGUOUS",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0059",
+    "payment_id": "pay_synth_0059",
+    "order_id": "ord_synth_0059",
+    "amount": 58000.0,
+    "currency": "INR",
+    "customer_name": "Gregory Myers",
+    "awb_number": "1Z9998880059",
+    "delivery_date": "2026-08-10"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0059_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    }
+  ],
+  "expected_outcome": "HUMAN_REVIEW",
+  "contradiction_reason": "Missing shipping/delivery proof document"
+}

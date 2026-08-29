@@ -1,0 +1,28 @@
+{
+  "case_id": "case_0062",
+  "category": "INVALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0062",
+    "payment_id": "pay_synth_0062",
+    "order_id": "ord_synth_0062",
+    "amount": 139600.0,
+    "currency": "INR",
+    "customer_name": "Jordan Vasquez",
+    "awb_number": "1Z9998880062",
+    "delivery_date": "2026-08-19"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0062_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0062_2",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "REJECT",
+  "contradiction_reason": "Airway Bill number mismatch between logistics and dispute"
+}

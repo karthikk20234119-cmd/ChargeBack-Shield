@@ -1,0 +1,28 @@
+{
+  "case_id": "case_0065",
+  "category": "INVALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0065",
+    "payment_id": "pay_synth_0065",
+    "order_id": "ord_synth_0065",
+    "amount": 95000.0,
+    "currency": "INR",
+    "customer_name": "Joshua Hill",
+    "awb_number": "1Z9998880065",
+    "delivery_date": "2026-08-16"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0065_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0065_2",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "REJECT",
+  "contradiction_reason": "Order ID on invoice does not match trusted transaction record"
+}

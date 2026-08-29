@@ -1,0 +1,23 @@
+{
+  "case_id": "case_0041",
+  "category": "AMBIGUOUS",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0041",
+    "payment_id": "pay_synth_0041",
+    "order_id": "ord_synth_0041",
+    "amount": 14000.0,
+    "currency": "INR",
+    "customer_name": "Sarah Smith",
+    "awb_number": "1Z9998880041",
+    "delivery_date": "2026-08-21"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0041_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    }
+  ],
+  "expected_outcome": "HUMAN_REVIEW",
+  "contradiction_reason": "Missing shipping/delivery proof document"
+}

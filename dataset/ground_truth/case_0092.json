@@ -1,0 +1,23 @@
+{
+  "case_id": "case_0092",
+  "category": "TECHNICAL_FAILURE",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0092",
+    "payment_id": "pay_synth_0092",
+    "order_id": "ord_synth_0092",
+    "amount": 86400.0,
+    "currency": "INR",
+    "customer_name": "James Morris",
+    "awb_number": "1Z9998880092",
+    "delivery_date": "2026-08-11"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0092_1",
+      "filename": "corrupted_invoice.pdf",
+      "document_type": "invoice"
+    }
+  ],
+  "expected_outcome": "REJECT",
+  "contradiction_reason": "Corrupted unparseable PDF document"
+}

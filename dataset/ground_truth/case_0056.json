@@ -1,0 +1,23 @@
+{
+  "case_id": "case_0056",
+  "category": "AMBIGUOUS",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0056",
+    "payment_id": "pay_synth_0056",
+    "order_id": "ord_synth_0056",
+    "amount": 28200.0,
+    "currency": "INR",
+    "customer_name": "Barbara Jordan",
+    "awb_number": "1Z9998880056",
+    "delivery_date": "2026-08-14"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0056_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    }
+  ],
+  "expected_outcome": "HUMAN_REVIEW",
+  "contradiction_reason": "Missing shipping/delivery proof document"
+}

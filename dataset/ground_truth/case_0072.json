@@ -1,0 +1,28 @@
+{
+  "case_id": "case_0072",
+  "category": "INVALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0072",
+    "payment_id": "pay_synth_0072",
+    "order_id": "ord_synth_0072",
+    "amount": 40600.0,
+    "currency": "INR",
+    "customer_name": "Samuel Anderson",
+    "awb_number": "1Z9998880072",
+    "delivery_date": "2026-08-05"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0072_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0072_2",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "REJECT",
+  "contradiction_reason": "Airway Bill number mismatch between logistics and dispute"
+}

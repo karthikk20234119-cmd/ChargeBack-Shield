@@ -1,0 +1,23 @@
+{
+  "case_id": "case_0058",
+  "category": "AMBIGUOUS",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0058",
+    "payment_id": "pay_synth_0058",
+    "order_id": "ord_synth_0058",
+    "amount": 104200.0,
+    "currency": "INR",
+    "customer_name": "Kyle Jordan",
+    "awb_number": "1Z9998880058",
+    "delivery_date": "2026-08-21"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0058_1",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "HUMAN_REVIEW",
+  "contradiction_reason": "Delivery receipt lacks a customer signature"
+}

@@ -1,0 +1,23 @@
+{
+  "case_id": "case_0060",
+  "category": "AMBIGUOUS",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0060",
+    "payment_id": "pay_synth_0060",
+    "order_id": "ord_synth_0060",
+    "amount": 63100.0,
+    "currency": "INR",
+    "customer_name": "Sandra Mckenzie",
+    "awb_number": "1Z9998880060",
+    "delivery_date": "2026-08-05"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0060_1",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "HUMAN_REVIEW",
+  "contradiction_reason": "Low image clarity and blurry delivery receipt scan"
+}

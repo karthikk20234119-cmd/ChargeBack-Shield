@@ -1,0 +1,28 @@
+{
+  "case_id": "case_0079",
+  "category": "INVALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0079",
+    "payment_id": "pay_synth_0079",
+    "order_id": "ord_synth_0079",
+    "amount": 19200.0,
+    "currency": "INR",
+    "customer_name": "Joseph Perez",
+    "awb_number": "1Z9998880079",
+    "delivery_date": "2026-08-07"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0079_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0079_2",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "REJECT",
+  "contradiction_reason": "Evidence belongs to an unrelated dispute"
+}

@@ -1,0 +1,23 @@
+{
+  "case_id": "case_0045",
+  "category": "AMBIGUOUS",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0045",
+    "payment_id": "pay_synth_0045",
+    "order_id": "ord_synth_0045",
+    "amount": 96900.0,
+    "currency": "INR",
+    "customer_name": "Michael Fisher",
+    "awb_number": "1Z9998880045",
+    "delivery_date": "2026-08-14"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0045_1",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "HUMAN_REVIEW",
+  "contradiction_reason": "Low image clarity and blurry delivery receipt scan"
+}

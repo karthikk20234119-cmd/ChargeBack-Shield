@@ -1,0 +1,23 @@
+{
+  "case_id": "case_0098",
+  "category": "TECHNICAL_FAILURE",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0098",
+    "payment_id": "pay_synth_0098",
+    "order_id": "ord_synth_0098",
+    "amount": 144700.0,
+    "currency": "INR",
+    "customer_name": "Robert Gonzales",
+    "awb_number": "1Z9998880098",
+    "delivery_date": "2026-08-19"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0098_1",
+      "filename": "damaged_pod.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "REJECT",
+  "contradiction_reason": "Malformed image payload"
+}

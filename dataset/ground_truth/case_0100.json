@@ -1,0 +1,23 @@
+{
+  "case_id": "case_0100",
+  "category": "TECHNICAL_FAILURE",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0100",
+    "payment_id": "pay_synth_0100",
+    "order_id": "ord_synth_0100",
+    "amount": 115000.0,
+    "currency": "INR",
+    "customer_name": "Richard Burns",
+    "awb_number": "1Z9998880100",
+    "delivery_date": "2026-08-20"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0100_1",
+      "filename": "corrupted_invoice.pdf",
+      "document_type": "invoice"
+    }
+  ],
+  "expected_outcome": "REJECT",
+  "contradiction_reason": "Corrupted unparseable PDF document"
+}

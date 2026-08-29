@@ -1,0 +1,23 @@
+{
+  "case_id": "case_0099",
+  "category": "TECHNICAL_FAILURE",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0099",
+    "payment_id": "pay_synth_0099",
+    "order_id": "ord_synth_0099",
+    "amount": 120100.0,
+    "currency": "INR",
+    "customer_name": "Greg Hoffman",
+    "awb_number": "1Z9998880099",
+    "delivery_date": "2026-08-20"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0099_1",
+      "filename": "document.exe",
+      "document_type": "unknown"
+    }
+  ],
+  "expected_outcome": "REJECT",
+  "contradiction_reason": "Unsupported document extension (.exe)"
+}

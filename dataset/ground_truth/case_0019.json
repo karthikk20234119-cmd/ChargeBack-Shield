@@ -1,0 +1,33 @@
+{
+  "case_id": "case_0019",
+  "category": "VALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0019",
+    "payment_id": "pay_synth_0019",
+    "order_id": "ord_synth_0019",
+    "amount": 71300.0,
+    "currency": "INR",
+    "customer_name": "Gary Foster",
+    "awb_number": "1Z9998880019",
+    "delivery_date": "2026-08-04"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0019_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0019_2",
+      "filename": "shipping_receipt.pdf",
+      "document_type": "shipping_proof"
+    },
+    {
+      "document_id": "doc_0019_3",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "ALLOW",
+  "contradiction_reason": null
+}

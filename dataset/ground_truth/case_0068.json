@@ -1,0 +1,28 @@
+{
+  "case_id": "case_0068",
+  "category": "INVALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0068",
+    "payment_id": "pay_synth_0068",
+    "order_id": "ord_synth_0068",
+    "amount": 94600.0,
+    "currency": "INR",
+    "customer_name": "Amber Zuniga",
+    "awb_number": "1Z9998880068",
+    "delivery_date": "2026-08-14"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0068_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0068_2",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "REJECT",
+  "contradiction_reason": "Delivery date is in the future"
+}

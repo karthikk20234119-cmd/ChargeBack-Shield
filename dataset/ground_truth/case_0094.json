@@ -1,0 +1,23 @@
+{
+  "case_id": "case_0094",
+  "category": "TECHNICAL_FAILURE",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0094",
+    "payment_id": "pay_synth_0094",
+    "order_id": "ord_synth_0094",
+    "amount": 56400.0,
+    "currency": "INR",
+    "customer_name": "Mary Lopez",
+    "awb_number": "1Z9998880094",
+    "delivery_date": "2026-08-03"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0094_1",
+      "filename": "damaged_pod.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "REJECT",
+  "contradiction_reason": "Malformed image payload"
+}

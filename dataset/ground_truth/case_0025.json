@@ -1,0 +1,33 @@
+{
+  "case_id": "case_0025",
+  "category": "VALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0025",
+    "payment_id": "pay_synth_0025",
+    "order_id": "ord_synth_0025",
+    "amount": 79600.0,
+    "currency": "INR",
+    "customer_name": "Jerry Baker",
+    "awb_number": "1Z9998880025",
+    "delivery_date": "2026-08-20"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0025_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0025_2",
+      "filename": "shipping_receipt.pdf",
+      "document_type": "shipping_proof"
+    },
+    {
+      "document_id": "doc_0025_3",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "ALLOW",
+  "contradiction_reason": null
+}

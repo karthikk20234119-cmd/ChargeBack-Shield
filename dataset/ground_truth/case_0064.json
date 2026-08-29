@@ -1,0 +1,28 @@
+{
+  "case_id": "case_0064",
+  "category": "INVALID",
+  "trusted_data": {
+    "dispute_id": "disp_synth_0064",
+    "payment_id": "pay_synth_0064",
+    "order_id": "ord_synth_0064",
+    "amount": 71600.0,
+    "currency": "INR",
+    "customer_name": "Curtis Lewis",
+    "awb_number": "1Z9998880064",
+    "delivery_date": "2026-08-18"
+  },
+  "documents": [
+    {
+      "document_id": "doc_0064_1",
+      "filename": "invoice.pdf",
+      "document_type": "invoice"
+    },
+    {
+      "document_id": "doc_0064_2",
+      "filename": "proof_of_delivery.png",
+      "document_type": "delivery_proof"
+    }
+  ],
+  "expected_outcome": "REJECT",
+  "contradiction_reason": "Evidence belongs to an unrelated dispute"
+}

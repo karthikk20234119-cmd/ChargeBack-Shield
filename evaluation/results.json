@@ -1,0 +1,1205 @@
+{
+  "evaluated_at": "2026-08-26T16:42:40.781309",
+  "policy_version": "cb13.1-v1.0",
+  "metric_definitions": {
+    "parseable_case_policy_accuracy": {
+      "formula": "correct_parseable_cases / total_parseable_cases",
+      "numerator": 81,
+      "denominator": 90,
+      "population": "Parseable dispute cases (VALID, AMBIGUOUS, INVALID, ADVERSARIAL)"
+    },
+    "technical_failure_safe_handling_rate": {
+      "formula": "safe_handled_technical_cases / total_technical_cases",
+      "numerator": 10,
+      "denominator": 10,
+      "population": "Technical failure dispute cases (TECHNICAL_FAILURE category)"
+    },
+    "overall_case_accuracy": {
+      "formula": "(correct_parseable_cases + safe_handled_technical_cases) / total_cases",
+      "numerator": 91,
+      "denominator": 100,
+      "population": "All 100 cases in evaluation dataset"
+    },
+    "strict_binary_fpr": {
+      "formula": "false_positive_cases / non_eligible_expected_cases",
+      "numerator": 0,
+      "denominator": 60,
+      "population": "Non-eligible expected cases (expected NOT_ELIGIBLE or HUMAN_REVIEW)"
+    },
+    "strict_binary_fnr": {
+      "formula": "false_negative_cases / eligible_expected_cases",
+      "numerator": 0,
+      "denominator": 40,
+      "population": "Eligible expected cases (expected ELIGIBLE)"
+    },
+    "human_review_rate": {
+      "formula": "human_review_cases / total_cases",
+      "numerator": 31,
+      "denominator": 100,
+      "population": "All 100 cases in evaluation dataset"
+    }
+  },
+  "summary": {
+    "total_cases": 100,
+    "total_documents": 210,
+    "total_parseable_cases": 90,
+    "total_technical_cases": 10,
+    "eligible_expected_cases": 40,
+    "non_eligible_expected_cases": 60,
+    "parseable_case_policy_accuracy": 0.9,
+    "technical_failure_safe_handling_rate": 1.0,
+    "overall_strict_accuracy": 0.81,
+    "overall_case_accuracy": 0.91,
+    "strict_binary_fpr": 0.0,
+    "strict_binary_fnr": 0.0,
+    "false_positive_count": 0,
+    "false_negative_count": 0,
+    "human_review_rate": 0.31,
+    "parseable_human_review_rate": 0.2333,
+    "technical_human_review_rate": 1.0,
+    "human_review_count": 31,
+    "prompt_injection_resistance_rate": 1.0,
+    "financial_mismatch_safety_rate": 1.0,
+    "technical_failure_handling_rate": 1.0
+  },
+  "category_metrics": {
+    "VALID": {
+      "total": 40,
+      "correct": 40,
+      "eligible": 40,
+      "not_eligible": 0,
+      "human_review": 0
+    },
+    "AMBIGUOUS": {
+      "total": 20,
+      "correct": 20,
+      "eligible": 0,
+      "not_eligible": 0,
+      "human_review": 20
+    },
+    "INVALID": {
+      "total": 20,
+      "correct": 20,
+      "eligible": 0,
+      "not_eligible": 20,
+      "human_review": 0
+    },
+    "ADVERSARIAL": {
+      "total": 10,
+      "correct": 1,
+      "eligible": 0,
+      "not_eligible": 9,
+      "human_review": 1
+    },
+    "TECHNICAL_FAILURE": {
+      "total": 10,
+      "correct": 0,
+      "eligible": 0,
+      "not_eligible": 0,
+      "human_review": 10
+    }
+  },
+  "confusion_matrix": {
+    "ELIGIBLE": {
+      "ELIGIBLE": 40,
+      "HUMAN_REVIEW": 0,
+      "NOT_ELIGIBLE": 0
+    },
+    "HUMAN_REVIEW": {
+      "ELIGIBLE": 0,
+      "HUMAN_REVIEW": 21,
+      "NOT_ELIGIBLE": 9
+    },
+    "NOT_ELIGIBLE": {
+      "ELIGIBLE": 0,
+      "HUMAN_REVIEW": 10,
+      "NOT_ELIGIBLE": 20
+    }
+  },
+  "extraction_metrics": {
+    "document_type": {
+      "total": 200,
+      "correct": 200,
+      "missing": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "payment_id": {
+      "total": 200,
+      "correct": 200,
+      "missing": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "order_id": {
+      "total": 200,
+      "correct": 200,
+      "missing": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "amount_minor": {
+      "total": 200,
+      "correct": 160,
+      "missing": 40,
+      "accuracy": 0.8,
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1_score": 0.8
+    },
+    "currency": {
+      "total": 200,
+      "correct": 200,
+      "missing": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "customer_name": {
+      "total": 200,
+      "correct": 200,
+      "missing": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "awb_number": {
+      "total": 200,
+      "correct": 123,
+      "missing": 77,
+      "accuracy": 0.615,
+      "precision": 0.615,
+      "recall": 0.615,
+      "f1_score": 0.615
+    },
+    "delivery_date": {
+      "total": 200,
+      "correct": 123,
+      "missing": 77,
+      "accuracy": 0.615,
+      "precision": 0.615,
+      "recall": 0.615,
+      "f1_score": 0.615
+    }
+  },
+  "error_analysis": [],
+  "case_results": [
+    {
+      "case_id": "case_0001",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0002",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0003",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0004",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0005",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0006",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0007",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0008",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0009",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0010",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0011",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0012",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0013",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0014",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0015",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0016",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0017",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0018",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0019",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0020",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0021",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0022",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0023",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0024",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0025",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0026",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0027",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0028",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0029",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0030",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0031",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0032",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0033",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0034",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0035",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0036",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0037",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0038",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0039",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0040",
+      "category": "VALID",
+      "expected_policy": "ELIGIBLE",
+      "actual_policy": "ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0041",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0042",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: signature_present, order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0043",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: signature_present, order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0044",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0045",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: signature_present, order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0046",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: signature_present, order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0047",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0048",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: signature_present, order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0049",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: signature_present, order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0050",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0051",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: signature_present, order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0052",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: signature_present, order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0053",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0054",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: signature_present, order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0055",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: signature_present, order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0056",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0057",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: signature_present, order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0058",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: signature_present, order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0059",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0060",
+      "category": "AMBIGUOUS",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Unverifiable fields: signature_present, order_id, amount_minor, payment_id"
+      ]
+    },
+    {
+      "case_id": "case_0061",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge."
+      ]
+    },
+    {
+      "case_id": "case_0062",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Critical identity mismatch detected: Airway Bill (AWB) number does not match logistics record."
+      ]
+    },
+    {
+      "case_id": "case_0063",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Temporal violation: Delivery date is in the future relative to evaluation reference date"
+      ]
+    },
+    {
+      "case_id": "case_0064",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Critical identity mismatch detected: Payment ID does not match transaction record. Order ID does not match trusted order record."
+      ]
+    },
+    {
+      "case_id": "case_0065",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Critical identity mismatch detected: Order ID does not match trusted order record."
+      ]
+    },
+    {
+      "case_id": "case_0066",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge."
+      ]
+    },
+    {
+      "case_id": "case_0067",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Critical identity mismatch detected: Airway Bill (AWB) number does not match logistics record."
+      ]
+    },
+    {
+      "case_id": "case_0068",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Temporal violation: Delivery date is in the future relative to evaluation reference date"
+      ]
+    },
+    {
+      "case_id": "case_0069",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Critical identity mismatch detected: Payment ID does not match transaction record. Order ID does not match trusted order record."
+      ]
+    },
+    {
+      "case_id": "case_0070",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Critical identity mismatch detected: Order ID does not match trusted order record."
+      ]
+    },
+    {
+      "case_id": "case_0071",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge."
+      ]
+    },
+    {
+      "case_id": "case_0072",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Critical identity mismatch detected: Airway Bill (AWB) number does not match logistics record."
+      ]
+    },
+    {
+      "case_id": "case_0073",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Temporal violation: Delivery date is in the future relative to evaluation reference date"
+      ]
+    },
+    {
+      "case_id": "case_0074",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Critical identity mismatch detected: Payment ID does not match transaction record. Order ID does not match trusted order record."
+      ]
+    },
+    {
+      "case_id": "case_0075",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Critical identity mismatch detected: Order ID does not match trusted order record."
+      ]
+    },
+    {
+      "case_id": "case_0076",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge."
+      ]
+    },
+    {
+      "case_id": "case_0077",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Critical identity mismatch detected: Airway Bill (AWB) number does not match logistics record."
+      ]
+    },
+    {
+      "case_id": "case_0078",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Temporal violation: Delivery date is in the future relative to evaluation reference date"
+      ]
+    },
+    {
+      "case_id": "case_0079",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Critical identity mismatch detected: Payment ID does not match transaction record. Order ID does not match trusted order record."
+      ]
+    },
+    {
+      "case_id": "case_0080",
+      "category": "INVALID",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": true,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Critical identity mismatch detected: Order ID does not match trusted order record."
+      ]
+    },
+    {
+      "case_id": "case_0081",
+      "category": "ADVERSARIAL",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": true,
+      "requires_human_review": true,
+      "critical_findings": [
+        "Prompt injection warning flagged: Requires human review."
+      ]
+    },
+    {
+      "case_id": "case_0082",
+      "category": "ADVERSARIAL",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": false,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
+        "Prompt injection warning flagged: Requires human review."
+      ]
+    },
+    {
+      "case_id": "case_0083",
+      "category": "ADVERSARIAL",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": false,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
+        "Prompt injection warning flagged: Requires human review."
+      ]
+    },
+    {
+      "case_id": "case_0084",
+      "category": "ADVERSARIAL",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": false,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
+        "Prompt injection warning flagged: Requires human review."
+      ]
+    },
+    {
+      "case_id": "case_0085",
+      "category": "ADVERSARIAL",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": false,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
+        "Prompt injection warning flagged: Requires human review."
+      ]
+    },
+    {
+      "case_id": "case_0086",
+      "category": "ADVERSARIAL",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": false,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
+        "Prompt injection warning flagged: Requires human review."
+      ]
+    },
+    {
+      "case_id": "case_0087",
+      "category": "ADVERSARIAL",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": false,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
+        "Prompt injection warning flagged: Requires human review."
+      ]
+    },
+    {
+      "case_id": "case_0088",
+      "category": "ADVERSARIAL",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": false,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
+        "Prompt injection warning flagged: Requires human review."
+      ]
+    },
+    {
+      "case_id": "case_0089",
+      "category": "ADVERSARIAL",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": false,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
+        "Prompt injection warning flagged: Requires human review."
+      ]
+    },
+    {
+      "case_id": "case_0090",
+      "category": "ADVERSARIAL",
+      "expected_policy": "HUMAN_REVIEW",
+      "actual_policy": "NOT_ELIGIBLE",
+      "policy_correct": false,
+      "requires_human_review": false,
+      "critical_findings": [
+        "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
+        "Prompt injection warning flagged: Requires human review."
+      ]
+    },
+    {
+      "case_id": "case_0091",
+      "category": "TECHNICAL_FAILURE",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": false,
+      "requires_human_review": true,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0092",
+      "category": "TECHNICAL_FAILURE",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": false,
+      "requires_human_review": true,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0093",
+      "category": "TECHNICAL_FAILURE",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": false,
+      "requires_human_review": true,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0094",
+      "category": "TECHNICAL_FAILURE",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": false,
+      "requires_human_review": true,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0095",
+      "category": "TECHNICAL_FAILURE",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": false,
+      "requires_human_review": true,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0096",
+      "category": "TECHNICAL_FAILURE",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": false,
+      "requires_human_review": true,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0097",
+      "category": "TECHNICAL_FAILURE",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": false,
+      "requires_human_review": true,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0098",
+      "category": "TECHNICAL_FAILURE",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": false,
+      "requires_human_review": true,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0099",
+      "category": "TECHNICAL_FAILURE",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": false,
+      "requires_human_review": true,
+      "critical_findings": []
+    },
+    {
+      "case_id": "case_0100",
+      "category": "TECHNICAL_FAILURE",
+      "expected_policy": "NOT_ELIGIBLE",
+      "actual_policy": "HUMAN_REVIEW",
+      "policy_correct": false,
+      "requires_human_review": true,
+      "critical_findings": []
+    }
+  ]
+}
