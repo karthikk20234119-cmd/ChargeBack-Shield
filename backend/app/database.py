@@ -43,4 +43,13 @@ async def get_db() -> AsyncGenerator[AsyncSession, None]:
 async def init_db() -> None:
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+        # Safe column migration for SQLite
+        try:
+            await conn.exec_driver_sql("ALTER TABLE contest_submissions ADD COLUMN reconciled_at VARCHAR;")
+        except Exception:
+            pass
+        try:
+            await conn.exec_driver_sql("ALTER TABLE contest_submissions ADD COLUMN reconciliation_reason VARCHAR;")
+        except Exception:
+            pass
 

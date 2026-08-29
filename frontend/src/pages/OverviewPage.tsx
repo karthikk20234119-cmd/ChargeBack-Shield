@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { api } from '../api/client';
-import { DashboardSummaryResponse, OperationalHealthResponse, AlertSummaryResponse } from '../api/types';
+import { DashboardSummaryResponse, OperationalHealthResponse, OperationalAlert } from '../api/types';
 import { SkeletonLoader } from '../components/ui/SkeletonLoader';
 import { SeverityBadge } from '../components/ui/SeverityBadge';
 import {
@@ -20,7 +20,7 @@ export const OverviewPage: React.FC = () => {
   const [summary, setSummary] = useState<DashboardSummaryResponse | null>(null);
   const [outcomes, setOutcomes] = useState<Record<string, number>>({});
   const [health, setHealth] = useState<OperationalHealthResponse | null>(null);
-  const [alerts, setAlerts] = useState<AlertSummaryResponse | null>(null);
+  const [alertsList, setAlertsList] = useState<OperationalAlert[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,15 +28,15 @@ export const OverviewPage: React.FC = () => {
       setLoading(true);
       try {
         const [sumRes, outRes, healthRes, alertsRes] = await Promise.all([
-          api.getDashboardSummary(),
-          api.getDashboardOutcomes(),
-          api.getOperationalHealth(),
-          api.getAlertsSummary(),
+          api.getDashboardSummary().catch(() => null),
+          api.getDashboardOutcomes().catch(() => ({})),
+          api.getOperationalHealth().catch(() => null),
+          api.getAlerts().catch(() => []),
         ]);
         setSummary(sumRes);
-        setOutcomes(outRes);
+        setOutcomes(outRes || {});
         setHealth(healthRes);
-        setAlerts(alertsRes);
+        setAlertsList(Array.isArray(alertsRes) ? alertsRes : []);
       } catch {
         // Safe error fallback
       } finally {
@@ -189,15 +189,19 @@ export const OverviewPage: React.FC = () => {
           </h3>
 
           <div className="space-y-3">
-            {alerts?.alerts.slice(0, 4).map((a) => (
-              <div key={a.id} className="p-3 bg-slate-900/60 rounded-lg border border-slate-800 space-y-1">
-                <div className="flex items-center justify-between">
-                  <SeverityBadge severity={a.severity} />
-                  <span className="text-[10px] font-mono text-slate-500">{a.code}</span>
+            {alertsList.length === 0 ? (
+              <p className="text-xs text-slate-400 py-4 text-center">No active operational alerts.</p>
+            ) : (
+              alertsList.slice(0, 4).map((a) => (
+                <div key={a.id} className="p-3 bg-slate-900/60 rounded-lg border border-slate-800 space-y-1">
+                  <div className="flex items-center justify-between">
+                    <SeverityBadge severity={a.severity} />
+                    <span className="text-[10px] font-mono text-slate-500">{a.code}</span>
+                  </div>
+                  <p className="text-xs text-slate-300 line-clamp-2">{a.message}</p>
                 </div>
-                <p className="text-xs text-slate-300 line-clamp-2">{a.message}</p>
-              </div>
-            ))}
+              ))
+            )}
           </div>
 
           <Link

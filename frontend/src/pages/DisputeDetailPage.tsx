@@ -266,7 +266,7 @@ export const DisputeDetailPage: React.FC = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800">
-                {matching.results.map((m, idx) => (
+                {matching?.results?.map((m, idx) => (
                   <tr key={idx} className="hover:bg-slate-900/50">
                     <td className="py-3 px-4 font-bold text-slate-200">{m.field_name}</td>
                     <td className="py-3 px-4 text-emerald-400">{String(m.expected_value)}</td>
@@ -295,7 +295,7 @@ export const DisputeDetailPage: React.FC = () => {
           </div>
 
           <div className="space-y-3">
-            {policy.rules_evaluated.map((r) => (
+            {policy?.rules_evaluated?.map((r) => (
               <div key={r.rule_id} className={`p-4 rounded-xl border text-xs font-mono ${
                 r.passed ? 'bg-emerald-950/30 border-emerald-800/60' : 'bg-rose-950/30 border-rose-800/60'
               }`}>

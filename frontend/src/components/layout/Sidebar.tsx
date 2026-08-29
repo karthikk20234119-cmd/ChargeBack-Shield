@@ -11,6 +11,7 @@ import {
   ShieldAlert,
   Play,
   Presentation,
+  HeartPulse,
 } from 'lucide-react';
 
 const navigationItems = [
@@ -19,6 +20,7 @@ const navigationItems = [
   { name: 'Evidence', path: '/evidence', icon: FileSearch },
   { name: 'Human Review', path: '/review', icon: UserCheck },
   { name: 'Operations', path: '/operations', icon: Activity },
+  { name: 'System Health', path: '/observability', icon: HeartPulse },
   { name: 'Analytics', path: '/analytics', icon: BarChart3 },
   { name: 'Audit & Compliance', path: '/audit', icon: ShieldCheck },
   { name: 'Demo Mode', path: '/demo', icon: Play, tag: 'DEMO' },

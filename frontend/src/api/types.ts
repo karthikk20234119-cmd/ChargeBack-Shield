@@ -247,13 +247,14 @@ export interface OperationalAlert {
 
 export interface AlertSummaryResponse {
   total_alerts: number;
+  total_open?: number;
   critical_count: number;
   high_count: number;
   medium_count: number;
   open_count: number;
   acknowledged_count: number;
   sla_breached_count: number;
-  alerts: OperationalAlert[];
+  alerts?: OperationalAlert[];
 }
 
 export interface OperationalHealthResponse {
@@ -264,6 +265,74 @@ export interface OperationalHealthResponse {
   unknown_submissions: number;
   stale_preflights: number;
   timestamp: string;
+}
+
+export interface ObservabilityMetricsResponse {
+  request_count: number;
+  request_error_count: number;
+  error_rate_pct: number;
+  average_latency_ms: number;
+  latency_p50_ms: number;
+  latency_p95_ms: number;
+  latency_p99_ms: number;
+  errors_by_category: Record<string, number>;
+  evidence_processing: {
+    total: number;
+    failed: number;
+    extractions: number;
+    extraction_failed: number;
+  };
+  policy_matching: {
+    matches: number;
+    policy_evaluations: number;
+    drafts_generated: number;
+    reviews_approved: number;
+    reviews_rejected: number;
+  };
+  preflight: {
+    ready: number;
+    blocked: number;
+    stale: number;
+  };
+  submission: {
+    success: number;
+    failed: number;
+    unknown: number;
+  };
+  reconciliation: {
+    success: number;
+    unknown: number;
+    lifecycle_syncs: number;
+    sync_failed: number;
+  };
+  alerts_and_sla: {
+    operational_alerts: number;
+    sla_breaches: number;
+  };
+}
+
+export interface ObservabilitySummaryResponse {
+  status: 'HEALTHY' | 'DEGRADED' | 'UNAVAILABLE' | 'UNKNOWN';
+  service: string;
+  environment: string;
+  metrics: ObservabilityMetricsResponse;
+  dependencies: {
+    database: { status: string; details: string };
+    storage: { status: string; details: string };
+    razorpay_gateway: { status: string; mode: string; details: string };
+  };
+  submission_reliability: {
+    submitted_count: number;
+    failed_count: number;
+    unknown_count: number;
+    reconciliation_required_notice: string | null;
+  };
+  sla_health: {
+    total_monitored: number;
+    on_track: number;
+    due_soon: number;
+    overdue: number;
+  };
 }
 
 export interface FunnelStageItem {

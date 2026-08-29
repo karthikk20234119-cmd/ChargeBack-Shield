@@ -26,12 +26,16 @@ wheels/
 
 # Environment & Credentials
 .env
+.env.*
+!.env.example
+!.env.production.example
 *.pem
 
 # Database & Uploads
 *.db
 *.sqlite3
 storage/
+backups/
 dataset/synthetic_files/
 
 # IDE & OS

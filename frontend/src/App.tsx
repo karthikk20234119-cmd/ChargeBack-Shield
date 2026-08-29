@@ -1,25 +1,29 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { MainLayout } from './components/layout/MainLayout';
 import { ToastMessage } from './components/ui/ToastContainer';
+import { ErrorBoundary } from './components/ui/ErrorBoundary';
 
-import { OverviewPage } from './pages/OverviewPage';
-import { DisputeListPage } from './pages/DisputeListPage';
-import { DisputeDetailPage } from './pages/DisputeDetailPage';
-import { EvidencePage } from './pages/EvidencePage';
-import { MatchingPage } from './pages/MatchingPage';
-import { PolicyPage } from './pages/PolicyPage';
-import { ContestDraftPage } from './pages/ContestDraftPage';
-import { HumanReviewPage } from './pages/HumanReviewPage';
-import { PreflightPage } from './pages/PreflightPage';
-import { SubmissionPage } from './pages/SubmissionPage';
-import { LifecyclePage } from './pages/LifecyclePage';
-import { OperationsPage } from './pages/OperationsPage';
-import { AnalyticsPage } from './pages/AnalyticsPage';
-import { AuditPage } from './pages/AuditPage';
-import { DemoPage } from './pages/DemoPage';
-import { PresentationPage } from './pages/PresentationPage';
-import { NotFoundPage } from './pages/NotFoundPage';
+import {
+  OverviewPage,
+  DisputeListPage,
+  DisputeDetailPage,
+  EvidencePage,
+  MatchingPage,
+  PolicyPage,
+  ContestDraftPage,
+  HumanReviewPage,
+  PreflightPage,
+  SubmissionPage,
+  LifecyclePage,
+  OperationsPage,
+  AnalyticsPage,
+  AuditPage,
+  DemoPage,
+  PresentationPage,
+  ObservabilityPage,
+  NotFoundPage,
+} from './pages';
 
 export const App: React.FC = () => {
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
@@ -39,25 +43,29 @@ export const App: React.FC = () => {
   return (
     <Router>
       <MainLayout toasts={toasts} onDismissToast={dismissToast}>
-        <Routes>
-          <Route path="/" element={<OverviewPage />} />
-          <Route path="/disputes" element={<DisputeListPage />} />
-          <Route path="/disputes/:id" element={<DisputeDetailPage />} />
-          <Route path="/evidence" element={<EvidencePage />} />
-          <Route path="/matching" element={<MatchingPage />} />
-          <Route path="/policy" element={<PolicyPage />} />
-          <Route path="/draft" element={<ContestDraftPage />} />
-          <Route path="/review" element={<HumanReviewPage onShowToast={addToast} />} />
-          <Route path="/preflight" element={<PreflightPage />} />
-          <Route path="/submission" element={<SubmissionPage />} />
-          <Route path="/lifecycle" element={<LifecyclePage />} />
-          <Route path="/operations" element={<OperationsPage onShowToast={addToast} />} />
-          <Route path="/analytics" element={<AnalyticsPage onShowToast={addToast} />} />
-          <Route path="/audit" element={<AuditPage />} />
-          <Route path="/demo" element={<DemoPage />} />
-          <Route path="/presentation" element={<PresentationPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <ErrorBoundary>
+          <Routes>
+            <Route path="/" element={<OverviewPage />} />
+            <Route path="/disputes" element={<DisputeListPage />} />
+            <Route path="/disputes/:id" element={<DisputeDetailPage />} />
+            <Route path="/evidence" element={<EvidencePage />} />
+            <Route path="/matching" element={<MatchingPage />} />
+            <Route path="/policy" element={<PolicyPage />} />
+            <Route path="/draft" element={<ContestDraftPage />} />
+            <Route path="/review" element={<HumanReviewPage onShowToast={addToast} />} />
+            <Route path="/preflight" element={<PreflightPage />} />
+            <Route path="/submission" element={<SubmissionPage />} />
+            <Route path="/lifecycle" element={<LifecyclePage />} />
+            <Route path="/operations" element={<OperationsPage onShowToast={addToast} />} />
+            <Route path="/alerts" element={<Navigate to="/operations" replace />} />
+            <Route path="/analytics" element={<AnalyticsPage onShowToast={addToast} />} />
+            <Route path="/audit" element={<AuditPage />} />
+            <Route path="/observability" element={<ObservabilityPage />} />
+            <Route path="/demo" element={<DemoPage />} />
+            <Route path="/presentation" element={<PresentationPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </ErrorBoundary>
       </MainLayout>
     </Router>
   );

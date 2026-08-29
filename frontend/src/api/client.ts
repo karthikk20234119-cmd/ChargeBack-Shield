@@ -11,9 +11,12 @@ import {
   BottleneckItem,
   DisputeAuditTimeline,
   OperationalAlert,
+  ObservabilityMetricsResponse,
+  ObservabilitySummaryResponse,
 } from './types';
 
-const API_BASE = '/api';
+const envBase = ((import.meta as any).env?.VITE_API_BASE_URL || '').replace(/\/$/, '');
+const API_BASE = envBase ? `${envBase}/api` : '/api';
 
 export class ApiError extends Error {
   constructor(
@@ -108,4 +111,8 @@ export const api = {
 
   // Audit
   getDisputeAuditTimeline: (disputeId: string) => request<DisputeAuditTimeline>(`/audit/disputes/${disputeId}/timeline`),
+
+  // Observability
+  getObservabilityMetrics: () => request<ObservabilityMetricsResponse>('/observability/metrics'),
+  getObservabilitySummary: () => request<ObservabilitySummaryResponse>('/observability/summary'),
 };

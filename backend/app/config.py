@@ -1,19 +1,32 @@
 import os
-from typing import Optional
+from typing import List, Optional, Union
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Chargeback Shield"
-    RAZORPAY_KEY_ID: str = "rzp_test_samplekeyid123"
+    APP_ENV: str = "development"
+    DEBUG: bool = False
+    LOG_LEVEL: str = "INFO"
 
-    RAZORPAY_KEY_SECRET: str = "samplesecretkey123456"
-    RAZORPAY_WEBHOOK_SECRET: str = "samplewebhooksecret123"
-    
-    OPENAI_API_KEY: str = "sk-proj-sampleopenaikey123"
+    # API & Docs Settings
+    API_PREFIX: str = "/api"
+    ENABLE_DOCS: bool = True
+    ENABLE_OPENAPI: bool = True
+    FRONTEND_URL: str = "http://localhost:3000"
+    CORS_ALLOWED_ORIGINS: Union[List[str], str] = ["http://localhost:3000", "http://127.0.0.1:3000"]
+
+    # Security & Timeout Safeguards
+    REQUEST_TIMEOUT: int = 30
+    MAX_REQUEST_SIZE: int = 10485760  # 10 MB limit for total request payload
+
+    # Secrets (Loaded strictly from environment; no hardcoded defaults)
+    RAZORPAY_KEY_ID: str = ""
+    RAZORPAY_KEY_SECRET: str = ""
+    RAZORPAY_WEBHOOK_SECRET: str = ""
+    OPENAI_API_KEY: str = ""
     
     DATABASE_URL: str = "sqlite+aiosqlite:///./chargeback_shield.db"
     ENVIRONMENT: str = "development"
-    LOG_LEVEL: str = "INFO"
     
     # Upload & Processing Directories
     UPLOAD_DIR: str = "./storage/evidence"
@@ -41,4 +54,18 @@ class Settings(BaseSettings):
         extra="ignore"
     )
 
+    def is_production(self) -> bool:
+        return self.APP_ENV.lower() == "production" or self.ENVIRONMENT.lower() == "production"
+
+    def is_debug(self) -> bool:
+        if self.is_production():
+            return False
+        return self.DEBUG
+
+    def get_cors_origins(self) -> List[str]:
+        if isinstance(self.CORS_ALLOWED_ORIGINS, str):
+            return [o.strip() for o in self.CORS_ALLOWED_ORIGINS.split(",") if o.strip()]
+        return list(self.CORS_ALLOWED_ORIGINS)
+
 settings = Settings()
+

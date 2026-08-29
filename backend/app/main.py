@@ -21,6 +21,12 @@ from backend.app.api.dashboard import dashboard_router
 from backend.app.api.audit_reporting import audit_reporting_router
 from backend.app.api.operational_alerts import operational_alerts_router
 from backend.app.api.analytics import analytics_router
+from backend.app.api.observability import router as observability_router
+
+from backend.app.core.errors import setup_error_handlers
+from backend.app.core.middleware import RequestCorrelationMiddleware
+from backend.app.core.startup import validate_production_startup
+from backend.app.core.observability import check_database_health, check_storage_health
 
 logger = logging.getLogger("chargeback_shield")
 logging.basicConfig(
@@ -30,6 +36,7 @@ logging.basicConfig(
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    validate_production_startup()
     logger.info("Initializing Chargeback Shield Database schema...")
     await init_db()
     logger.info("Chargeback Shield Backend application startup complete.")
@@ -40,16 +47,26 @@ app = FastAPI(
     title=settings.PROJECT_NAME,
     version="1.0.0",
     description="Chargeback Shield — AI-powered chargeback evidence intelligence and safe representment system",
-    lifespan=lifespan
+    lifespan=lifespan,
+    docs_url="/docs" if settings.ENABLE_DOCS else None,
+    redoc_url="/redoc" if settings.ENABLE_DOCS else None,
+    openapi_url="/openapi.json" if settings.ENABLE_OPENAPI else None,
 )
 
+# Register Request Correlation & Security Headers Middleware
+app.add_middleware(RequestCorrelationMiddleware)
+
+# Register Hardened CORS Middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=settings.get_cors_origins(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Setup Centralized Production Exception Handlers
+setup_error_handlers(app)
 
 # Include API Routers
 app.include_router(disputes_router)
@@ -68,6 +85,7 @@ app.include_router(dashboard_router)
 app.include_router(audit_reporting_router)
 app.include_router(operational_alerts_router)
 app.include_router(analytics_router)
+app.include_router(observability_router)
 
 @app.get("/")
 async def root():
@@ -84,4 +102,26 @@ async def health_check():
         "status": "healthy",
         "service": "Chargeback Shield API",
         "environment": settings.ENVIRONMENT
+    }
+
+@app.get("/api/health/live")
+async def health_live():
+    return {
+        "status": "ok",
+        "service": "Chargeback Shield API",
+        "environment": settings.ENVIRONMENT
+    }
+
+@app.get("/api/health/ready")
+async def health_ready():
+    db_health = await check_database_health()
+    storage_health = check_storage_health()
+    is_ready = db_health["status"] == "HEALTHY" and storage_health["status"] == "HEALTHY"
+
+    return {
+        "status": "ready" if is_ready else "degraded",
+        "service": "Chargeback Shield API",
+        "environment": settings.ENVIRONMENT,
+        "database": db_health["status"],
+        "storage": storage_health["status"]
     }

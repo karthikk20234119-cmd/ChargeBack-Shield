@@ -32,7 +32,7 @@ export const Header: React.FC = () => {
   }, []);
 
   const healthStatus = health?.status || 'HEALTHY';
-  const openAlerts = alerts?.open_count || 0;
+  const openAlerts = alerts?.total_open ?? alerts?.open_count ?? alerts?.total_alerts ?? 0;
   const criticalAlerts = alerts?.critical_count || 0;
 
   return (
