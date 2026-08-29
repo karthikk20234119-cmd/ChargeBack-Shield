@@ -91,34 +91,34 @@ Chargeback Shield solves these operational failures through a deterministic, evi
 
 ```mermaid
 graph TD
-    User([Merchant / Operator]) -->|HTTPS| Frontend[React 18 / Vite Frontend]
-    Frontend -->|REST API| API[FastAPI Backend Application]
+    User(["Merchant / Operator"]) -->|"HTTPS"| Frontend["React 18 / Vite Frontend"]
+    Frontend -->|"REST API"| API["FastAPI Backend Application"]
     
-    subgraph Core Processing Engine
-        API --> Lifecycle[Dispute Lifecycle Manager]
-        Lifecycle --> EvidencePipe[Evidence Ingestion Pipeline]
-        EvidencePipe --> FactExtract[Fact Extraction Service]
-        FactExtract --> MatchEngine[Deterministic Matching Engine]
-        MatchEngine --> PolicyEngine[Deterministic Policy Engine]
-        PolicyEngine --> DraftGen[Contest Draft Generator]
+    subgraph "Core Processing Engine"
+        API --> Lifecycle["Dispute Lifecycle Manager"]
+        Lifecycle --> EvidencePipe["Evidence Ingestion Pipeline"]
+        EvidencePipe --> FactExtract["Fact Extraction Service"]
+        FactExtract --> MatchEngine["Deterministic Matching Engine"]
+        MatchEngine --> PolicyEngine["Deterministic Policy Engine"]
+        PolicyEngine --> DraftGen["Contest Draft Generator"]
     end
     
-    subgraph Human Oversight & Authorization Gate
-        DraftGen --> HumanWorkspace[Human Review Workspace]
-        HumanWorkspace -->|Approve/Reject| PreflightGate[Preflight Authorization Gate]
+    subgraph "Human Oversight & Authorization Gate"
+        DraftGen --> HumanWorkspace["Human Review Workspace"]
+        HumanWorkspace -->|"Approve/Reject"| PreflightGate["Preflight Authorization Gate"]
     end
 
-    subgraph Single Mutation Boundary
-        PreflightGate -->|Authorized READY State| SubmissionBoundary[ContestSubmissionClient Boundary]
-        SubmissionBoundary -->|POST /disputes/{id}/contest| RazorpayAPI[Razorpay Gateway API]
+    subgraph "Single Mutation Boundary"
+        PreflightGate -->|"Authorized READY State"| SubmissionBoundary["ContestSubmissionClient Boundary"]
+        SubmissionBoundary -->|"POST /disputes/:id/contest"| RazorpayAPI["Razorpay Gateway API"]
     end
 
-    subgraph Read-Only Reconciliation & Audit
-        RazorpayAPI -->|Webhooks / Polling| ReconcileService[Read-Only Reconciliation Service]
+    subgraph "Read-Only Reconciliation & Audit"
+        RazorpayAPI -->|"Webhooks / Polling"| ReconcileService["Read-Only Reconciliation Service"]
         ReconcileService --> Lifecycle
-        Lifecycle --> Operations[Operations & SLA Manager]
-        Operations --> Analytics[Analytics & Reporting Engine]
-        Analytics --> AuditLog[(Append-Only Audit Trail)]
+        Lifecycle --> Operations["Operations & SLA Manager"]
+        Operations --> Analytics["Analytics & Reporting Engine"]
+        Analytics --> AuditLog[("Append-Only Audit Trail")]
     end
 ```
 
