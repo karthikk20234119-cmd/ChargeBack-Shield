@@ -87,6 +87,8 @@ Chargeback Shield solves these operational failures through a deterministic, evi
 
 ---
 
+## 🏗️ System Architecture
+
 ![Chargeback Shield Architecture](./chargeback%20shield-cleaned.png)
 
 
