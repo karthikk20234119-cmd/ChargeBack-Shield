@@ -13,6 +13,8 @@
 
 ---
 
+![Chargeback Shield Architecture](./chargeback%20shield-cleaned.png)
+
 ## 🚀 Overview
 
 **Chargeback Shield** is an end-to-end, enterprise-grade dispute intelligence and representment system built to handle payment chargebacks with mathematical precision, strict financial safety, and full operational explainability.
