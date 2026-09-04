@@ -24,7 +24,7 @@ class Settings(BaseSettings):
     RAZORPAY_KEY_SECRET: str = ""
     RAZORPAY_WEBHOOK_SECRET: str = ""
     GROQ_API_KEY: str = ""
-    GROQ_MODEL: str = "qwen/qwen3.6-27b"
+    GROQ_MODEL: str = "qwen/qwen3.8-27b"
     
     DATABASE_URL: str = "sqlite+aiosqlite:///./chargeback_shield.db"
     ENVIRONMENT: str = "development"

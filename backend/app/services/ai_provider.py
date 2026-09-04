@@ -86,13 +86,20 @@ class GroqProvider:
 
             raw_text = response.choices[0].message.content or "{}"
             cleaned_text = raw_text.strip()
-            if cleaned_text.startswith("```"):
-                lines = cleaned_text.splitlines()
-                if lines[0].startswith("```"):
-                    lines = lines[1:]
-                if lines and lines[-1].startswith("```"):
-                    lines = lines[:-1]
-                cleaned_text = "\n".join(lines).strip()
+            if "```" in cleaned_text:
+                if "```json" in cleaned_text:
+                    cleaned_text = cleaned_text.split("```json")[1].split("```")[0].strip()
+                else:
+                    cleaned_text = cleaned_text.split("```")[1].split("```")[0].strip()
+
+            start_idx = cleaned_text.find("{")
+            end_idx = cleaned_text.rfind("}")
+            if start_idx != -1 and end_idx != -1 and end_idx > start_idx:
+                cleaned_text = cleaned_text[start_idx:end_idx + 1]
+
+            # Sanitize trailing commas in JSON object/array
+            import re
+            cleaned_text = re.sub(r',(\s*[}\]])', r'\1', cleaned_text)
 
             parsed_json = json.loads(cleaned_text)
             return parsed_json
@@ -253,7 +260,7 @@ class MockAIProvider:
         if "shipping" in doc_hint_str or "ship" in doc_hint_str or "shipping" in file_basename or "ship" in file_basename:
             mock_payload["document_type"] = "shipping_proof"
             mock_payload["awb_number"] = extracted_awb
-            if is_invalid and "cross" in reason_lower:
+            if is_invalid and invalid_type == 0:
                 mock_payload["order_id"] = f"ord_synth_{suffix}_CONFLICT"
             mock_payload["delivery_date"] = extracted_del
             mock_payload["amount_minor"] = None
