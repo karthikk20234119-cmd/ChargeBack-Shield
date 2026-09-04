@@ -127,7 +127,7 @@ export const DEMO_STAGES: DemoStage[] = [
     input: 'Preflight authorized payload & merchant credentials',
     output: 'Razorpay Submission Record (Submission ID: sub_razorpay_998877, status: SUBMITTED)',
     security_boundary: 'Single controlled POST endpoint; zero direct frontend Razorpay requests',
-    provenance: 'Razorpay API Endpoint: POST /v1/disputes/disp_N1A2B3C4D5/contest',
+    provenance: 'Razorpay API Endpoint: PATCH /v1/disputes/disp_N1A2B3C4D5/contest',
     backend_api: 'GET /api/submission/disputes/demo-dispute-001',
   },
   {

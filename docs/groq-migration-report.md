@@ -1,13 +1,13 @@
 # Groq API Migration Report — Chargeback Shield
 
 ## 1. Migration Summary
-The Chargeback Shield evidence extraction layer has been fully migrated from OpenAI API (`AsyncOpenAI` / `gpt-4o-mini`) to Groq API (`AsyncGroq` / `qwen/qwen3.6-27b`). All downstream business logic, deterministic policy evaluation, dispute matching, contest draft generation, preflight validation, and Razorpay submission boundaries remain 100% untouched and isolated.
+The Chargeback Shield evidence extraction layer has been fully migrated from OpenAI API (`AsyncOpenAI` / `gpt-4o-mini`) to Groq API (`AsyncGroq` / `qwen/qwen3.8-27b`). All downstream business logic, deterministic policy evaluation, dispute matching, contest draft generation, preflight validation, and Razorpay submission boundaries remain 100% untouched and isolated.
 
 Live Groq smoke testing, API connectivity verification, multimodal vision extraction, schema validation, provider error handling, security audit, and synthetic dataset AI quality evaluation were conducted against live Groq Cloud infrastructure.
 
 ## 2. Files Changed
-- [`backend/app/config.py`](file:///c:/Projects/chargeback-shield/backend/app/config.py): Replaced `OPENAI_API_KEY` setting with `GROQ_API_KEY` and `GROQ_MODEL="qwen/qwen3.6-27b"`.
-- [`.env`](file:///c:/Projects/chargeback-shield/.env): Configured live `GROQ_API_KEY` and `GROQ_MODEL=qwen/qwen3.6-27b`.
+- [`backend/app/config.py`](file:///c:/Projects/chargeback-shield/backend/app/config.py): Replaced `OPENAI_API_KEY` setting with `GROQ_API_KEY` and `GROQ_MODEL="qwen/qwen3.8-27b"`.
+- [`.env`](file:///c:/Projects/chargeback-shield/.env): Configured live `GROQ_API_KEY` and `GROQ_MODEL=qwen/qwen3.8-27b`.
 - [`.env.example`](file:///c:/Projects/chargeback-shield/.env.example), [`.env.production.example`](file:///c:/Projects/chargeback-shield/.env.production.example), [`.env.production`](file:///c:/Projects/chargeback-shield/.env.production): Updated placeholder configuration templates for Groq settings.
 - [`requirements.txt`](file:///c:/Projects/chargeback-shield/requirements.txt): Replaced `openai>=1.12.0` dependency with `groq>=0.9.0`.
 - [`backend/app/services/ai_provider.py`](file:///c:/Projects/chargeback-shield/backend/app/services/ai_provider.py): Implemented `GroqProvider` class implementing `AIProvider` Protocol using `AsyncGroq` SDK.
@@ -33,10 +33,10 @@ Live Groq smoke testing, API connectivity verification, multimodal vision extrac
 
 ## 5. Environment Variables
 - `GROQ_API_KEY`: Secret API key for Groq Cloud (backend only).
-- `GROQ_MODEL`: Model name (default: `qwen/qwen3.6-27b`).
+- `GROQ_MODEL`: Model name (default: `qwen/qwen3.8-27b`).
 
 ## 6. Selected Groq Model
-- Selected model: `qwen/qwen3.6-27b`. Supports multimodal image input, OpenAI-compatible message structure, structured JSON output (`response_format={"type": "json_object"}`), and high-throughput inference.
+- Selected model: `qwen/qwen3.8-27b`. Supports multimodal image input, OpenAI-compatible message structure, structured JSON output (`response_format={"type": "json_object"}`), and high-throughput inference.
 
 ## 7. Live API Connectivity & Rate Limit Status
 - **GROQ CONNECTIVITY**: FAIL (Groq Cloud free on-demand tier Daily Token Limit reached: `RateLimitError (429): Limit 200,000 TPD, Used 199,986 TPD`)
@@ -73,7 +73,7 @@ Live Groq smoke testing, API connectivity verification, multimodal vision extrac
 - Razorpay Contest Operation: `PATCH /v1/disputes/:id/contest` (strictly verified and preserved).
 
 ## 13. Remaining Limitations & Recommendation
-- **Rate Limit Bottleneck**: Groq Cloud free tier (`on_demand`) has a 200,000 TPD (Tokens Per Day) limit for `qwen/qwen3.6-27b`, which was exhausted during live synthetic evaluation.
+- **Rate Limit Bottleneck**: Groq Cloud free tier (`on_demand`) has a 200,000 TPD (Tokens Per Day) limit for `qwen/qwen3.8-27b`, which was exhausted during live synthetic evaluation.
 - **Recommendation**: Upgrade the Groq Cloud account to **Dev Tier** (pay-as-you-go) at https://console.groq.com/settings/billing to remove the 200,000 TPD daily limit and increase OTPM/ITPM throughput for production.
 
 ## 14. Final Migration Status

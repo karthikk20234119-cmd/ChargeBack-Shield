@@ -561,7 +561,7 @@ async def test_42_to_43_credentials_never_logged_or_in_errors(async_db):
 
 @pytest.mark.asyncio
 async def test_44_to_45_no_arbitrary_network_endpoint_or_method(async_db):
-    """44-45. Verifies client uses hardcoded URL structure and POST method only."""
+    """44-45. Verifies client uses hardcoded URL structure and PATCH method only."""
     from unittest.mock import AsyncMock, MagicMock
     from backend.app.services.contest_submission_client import HttpContestSubmissionClient
 
@@ -572,12 +572,12 @@ async def test_44_to_45_no_arbitrary_network_endpoint_or_method(async_db):
     mock_resp.status_code = 200
     mock_resp.json.return_value = {"id": "sub_1", "status": "under_review"}
 
-    with patch("httpx.AsyncClient.post", new_callable=AsyncMock) as mock_post:
-        mock_post.return_value = mock_resp
+    with patch("httpx.AsyncClient.patch", new_callable=AsyncMock) as mock_patch:
+        mock_patch.return_value = mock_resp
         await client.submit_contest(req)
 
-        mock_post.assert_called_once()
-        call_url = mock_post.call_args[0][0]
+        mock_patch.assert_called_once()
+        call_url = mock_patch.call_args[0][0]
         assert call_url.endswith("/v1/disputes/disp_1/contest")
 
 

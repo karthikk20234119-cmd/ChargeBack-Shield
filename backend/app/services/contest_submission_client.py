@@ -96,7 +96,7 @@ class HttpContestSubmissionClient:
 
         try:
             async with httpx.AsyncClient(timeout=15.0) as client:
-                resp = await client.post(url, json=payload, auth=auth)
+                resp = await client.patch(url, json=payload, auth=auth)
         except httpx.TimeoutException as exc:
             logger.error("AUDIT [Contest Submission Timeout]: dispute_id=%s, error=%s", request.dispute_id, str(exc))
             raise RazorpayNetworkError(message=f"Request to Razorpay timed out: {exc}", dispute_id=request.dispute_id) from exc

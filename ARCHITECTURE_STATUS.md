@@ -39,7 +39,7 @@ Chargeback Shield implements a complete **17-Stage Dispute Defense Lifecycle** d
 ## Safety & Architectural Invariants Status
 
 - **Razorpay Mutation Isolation:** **Implemented & Enforced via AST Security Tests.**  
-  `ContestSubmissionClient.submit_contest()` is the ONLY production entry point executing `POST /v1/disputes/{dispute_id}/contest`.
+  `ContestSubmissionClient.submit_contest()` is the ONLY production entry point executing `PATCH /v1/disputes/{dispute_id}/contest`.
 - **Financial Identity Immutability:** **Implemented & Enforced.**  
   `payment_id`, `amount`, and `currency` cannot be modified via request bodies, query params, or human review overrides.
 - **Human Review Boundaries:** **Implemented.**  

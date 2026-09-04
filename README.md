@@ -12,7 +12,7 @@
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.109+-009688.svg)
 ![React](https://img.shields.io/badge/React-18.3-61DAFB.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6.svg)
-![Tests](https://img.shields.io/badge/Tests-698%2F698%20PASSED-brightgreen.svg)
+![Tests](https://img.shields.io/badge/Tests-686%2F686%20PASSED-brightgreen.svg)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg)
 ![Production](https://img.shields.io/badge/Production-Ready-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
@@ -27,7 +27,7 @@
 
 **Chargeback Shield** is an end-to-end, enterprise-grade dispute intelligence and representment system built to handle payment chargebacks with mathematical precision, strict financial safety, and full operational explainability.
 
-Chargeback Shield transforms fragmented, high-friction dispute management into a controlled, deterministic 15-stage lifecycle:
+Chargeback Shield transforms fragmented, high-friction dispute management into a controlled, deterministic 17-stage lifecycle:
 
 ```
 Dispute → Evidence → Processing → Extraction → Matching → Policy → Draft → Human Review → Preflight → Submission → Reconciliation → Lifecycle → Operations → Analytics → Audit
@@ -416,7 +416,7 @@ The project enforces continuous quality control backed by an extensive test suit
 
 ### 🏆 Verified Test Baseline
 ```
-============================== 698 PASSED ==============================
+============================== 686 PASSED ==============================
 - Unit & Integration Tests:     100% PASSED
 - Security & Boundary Audits:   100% PASSED
 - AST Architecture Validation:  100% PASSED

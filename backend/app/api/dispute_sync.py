@@ -13,6 +13,7 @@ FINANCIAL SAFETY:
 
 from __future__ import annotations
 
+import os
 import logging
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -45,7 +46,7 @@ def _get_sync_service() -> RazorpayDisputeSyncService:
         or settings.RAZORPAY_KEY_SECRET == "samplesecretkey123456"
     )
 
-    if settings.ENVIRONMENT == "test" or is_placeholder:
+    if settings.ENVIRONMENT in ("test", "testing") or "PYTEST_CURRENT_TEST" in os.environ or is_placeholder:
         client = MockRazorpayClient()
     else:
         client = HttpRazorpayClient(settings)
@@ -62,7 +63,7 @@ def _get_evidence_sync_service() -> RazorpayEvidenceSyncService:
         or settings.RAZORPAY_KEY_SECRET == "samplesecretkey123456"
     )
 
-    if settings.ENVIRONMENT == "test" or is_placeholder:
+    if settings.ENVIRONMENT in ("test", "testing") or "PYTEST_CURRENT_TEST" in os.environ or is_placeholder:
         client = MockRazorpayClient()
     else:
         client = HttpRazorpayClient(settings)

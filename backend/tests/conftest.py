@@ -1,10 +1,16 @@
+import os
 import pytest
 import pytest_asyncio
 from httpx import AsyncClient, ASGITransport
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
 
+from backend.app.config import settings
 from backend.app.main import app
 from backend.app.database import Base, get_db
+
+# Force test environment for pytest isolation
+settings.ENVIRONMENT = "test"
+os.environ["ENVIRONMENT"] = "test"
 
 # In-memory SQLite async database for unit tests
 TEST_DATABASE_URL = "sqlite+aiosqlite:///:memory:"

@@ -10,6 +10,7 @@ No mutation operations. No credentials in responses.
 
 from __future__ import annotations
 
+import os
 import logging
 from typing import Optional
 
@@ -43,7 +44,7 @@ def _get_razorpay_service() -> RazorpayService:
         or settings.RAZORPAY_KEY_SECRET == "samplesecretkey123456"
     )
 
-    if settings.ENVIRONMENT == "test" or is_placeholder:
+    if settings.ENVIRONMENT in ("test", "testing") or "PYTEST_CURRENT_TEST" in os.environ or is_placeholder:
         client = MockRazorpayClient()
     else:
         client = HttpRazorpayClient(settings)
