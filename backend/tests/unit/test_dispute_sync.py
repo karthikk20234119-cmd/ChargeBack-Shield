@@ -80,9 +80,10 @@ def _make_sync_service(client):
 # Webhook helpers (reused from test_webhook_security.py patterns)
 # ---------------------------------------------------------------------------
 
-def _generate_signature(payload_bytes, secret=settings.RAZORPAY_WEBHOOK_SECRET):
+def _generate_signature(payload_bytes, secret=None):
+    secret_key = secret or settings.RAZORPAY_WEBHOOK_SECRET or "samplesecretkey123456"
     return hmac.new(
-        key=secret.encode("utf-8"),
+        key=secret_key.encode("utf-8"),
         msg=payload_bytes,
         digestmod=hashlib.sha256,
     ).hexdigest()

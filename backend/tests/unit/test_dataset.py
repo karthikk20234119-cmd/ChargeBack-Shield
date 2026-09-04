@@ -138,6 +138,7 @@ def test_no_real_credentials():
         if f_name.endswith(".json"):
             content = open(os.path.join(ground_truth_dir, f_name)).read()
             assert "rzp_live_" not in content
+            assert "gsk_" not in content
             assert "sk-proj-" not in content
 
 def test_invalid_cases_contain_expected_contradictions():

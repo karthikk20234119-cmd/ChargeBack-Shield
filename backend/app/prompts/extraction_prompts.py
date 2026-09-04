@@ -12,6 +12,7 @@ CRITICAL SECURITY & BEHAVIORAL CONSTRAINTS:
 5. If a field is missing, unreadable, or not present, return null for that field and add an explanatory note to extraction_warnings.
 6. Do NOT invent, guess, or hallucinate values.
 7. Return raw numeric values for amounts (e.g. 5000.00) and ISO format for dates (YYYY-MM-DD).
+8. Do NOT output thinking/reasoning tags (<think>), explanations, or markdown code blocks. Output ONLY raw valid JSON matching the specified structure.
 
 JSON OUTPUT FORMAT:
 Return a single JSON object matching this structure:

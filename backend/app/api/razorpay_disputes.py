@@ -38,7 +38,8 @@ def _get_razorpay_service() -> RazorpayService:
     """
     # Detect placeholder/test credentials
     is_placeholder = (
-        settings.RAZORPAY_KEY_ID.startswith("rzp_test_sample")
+        not settings.RAZORPAY_KEY_ID
+        or settings.RAZORPAY_KEY_ID.startswith("rzp_test_sample")
         or settings.RAZORPAY_KEY_SECRET == "samplesecretkey123456"
     )
 

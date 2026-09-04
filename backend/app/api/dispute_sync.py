@@ -40,7 +40,8 @@ def _get_sync_service() -> RazorpayDisputeSyncService:
     are placeholder values; HttpRazorpayClient otherwise.
     """
     is_placeholder = (
-        settings.RAZORPAY_KEY_ID.startswith("rzp_test_sample")
+        not settings.RAZORPAY_KEY_ID
+        or settings.RAZORPAY_KEY_ID.startswith("rzp_test_sample")
         or settings.RAZORPAY_KEY_SECRET == "samplesecretkey123456"
     )
 
@@ -56,7 +57,8 @@ def _get_sync_service() -> RazorpayDisputeSyncService:
 def _get_evidence_sync_service() -> RazorpayEvidenceSyncService:
     """Dependency provider for RazorpayEvidenceSyncService."""
     is_placeholder = (
-        settings.RAZORPAY_KEY_ID.startswith("rzp_test_sample")
+        not settings.RAZORPAY_KEY_ID
+        or settings.RAZORPAY_KEY_ID.startswith("rzp_test_sample")
         or settings.RAZORPAY_KEY_SECRET == "samplesecretkey123456"
     )
 

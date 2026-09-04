@@ -7,9 +7,11 @@ from backend.app.models.matching import MatchResult
 from backend.app.models.sync_audit import DisputeSyncAudit
 from backend.app.models.contest_draft import ContestDraft
 from backend.app.models.contest_draft_review import ContestDraftReviewAudit
+from backend.app.models.contest_submission_preflight import ContestSubmissionPreflight
 from backend.app.models.contest_submission import ContestSubmission
 from backend.app.models.contest_submission_audit import ContestSubmissionAudit
 from backend.app.models.dispute_lifecycle_snapshot import DisputeLifecycleSnapshot
+from backend.app.models.operational_alert import OperationalAlert
 
 
 __all__ = [
@@ -27,4 +29,5 @@ __all__ = [
     "ContestSubmission",
     "ContestSubmissionAudit",
     "DisputeLifecycleSnapshot",
+    "OperationalAlert",
 ]

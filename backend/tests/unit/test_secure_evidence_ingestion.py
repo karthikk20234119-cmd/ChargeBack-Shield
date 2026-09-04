@@ -454,7 +454,7 @@ class TestInvariantBoundaries:
     def test_no_ai_processing(self):
         import backend.app.services.razorpay_evidence_ingestion_service as svc
         assert not hasattr(svc, "execute_ai_extraction")
-        assert not hasattr(svc, "OpenAIProvider")
+        assert not hasattr(svc, "GroqProvider")
 
     def test_no_rasterization(self):
         import backend.app.services.razorpay_evidence_ingestion_service as svc

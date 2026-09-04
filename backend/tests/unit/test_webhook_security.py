@@ -5,9 +5,10 @@ import pytest
 from backend.app.config import settings
 from backend.app.utils.security import verify_razorpay_signature
 
-def generate_signature(payload_bytes: bytes, secret: str = settings.RAZORPAY_WEBHOOK_SECRET) -> str:
+def generate_signature(payload_bytes: bytes, secret: str = None) -> str:
+    secret_key = secret or settings.RAZORPAY_WEBHOOK_SECRET or "samplesecretkey123456"
     return hmac.new(
-        key=secret.encode("utf-8"),
+        key=secret_key.encode("utf-8"),
         msg=payload_bytes,
         digestmod=hashlib.sha256
     ).hexdigest()

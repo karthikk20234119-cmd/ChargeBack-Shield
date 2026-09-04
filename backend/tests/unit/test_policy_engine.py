@@ -281,7 +281,7 @@ async def test_adversarial_document_cannot_change_policy(async_db):
 
 @pytest.mark.asyncio
 async def test_no_llm_call(async_db):
-    with patch("backend.app.services.ai_provider.OpenAIProvider.extract_evidence") as mock_ai:
+    with patch("backend.app.services.ai_provider.GroqProvider.extract_evidence") as mock_ai:
         await setup_dispute_for_policy(async_db, "disp_p19")
         res = await evaluate_dispute_policy("disp_p19", async_db)
         assert mock_ai.called is False

@@ -245,3 +245,80 @@ async def test_ground_truth_not_accessed(client, async_db, tmp_path):
         for call_item in mock_open.call_args_list:
             filepath = str(call_item[0][0])
             assert "ground_truth" not in filepath
+
+
+@pytest.mark.asyncio
+async def test_groq_provider_missing_key():
+    from backend.app.services.ai_provider import GroqProvider, ProcessedPageInput
+    provider = GroqProvider(api_key="")
+    pages = [ProcessedPageInput(page_number=1, image_path="nonexistent.png", width=100, height=100)]
+    with pytest.raises(ValueError, match="Groq API key is not configured"):
+        await provider.extract_evidence(pages)
+
+
+@pytest.mark.asyncio
+async def test_groq_provider_initialization():
+    from backend.app.services.ai_provider import GroqProvider
+    provider = GroqProvider(model_name="llama-3.2-11b-vision-preview", api_key="gsk_test_key_123")
+    assert provider.model_name == "llama-3.2-11b-vision-preview"
+    assert provider.api_key == "gsk_test_key_123"
+
+
+@pytest.mark.asyncio
+async def test_groq_provider_extract_evidence_success(tmp_path):
+    from backend.app.services.ai_provider import GroqProvider, ProcessedPageInput
+    from unittest.mock import AsyncMock, MagicMock
+
+    img_path = str(tmp_path / "page_001.png")
+    img = Image.new("RGB", (100, 100), "white")
+    img.save(img_path, "PNG")
+
+    provider = GroqProvider(api_key="gsk_test_key_123")
+    pages = [ProcessedPageInput(page_number=1, image_path=img_path, width=100, height=100)]
+
+    mock_msg = MagicMock()
+    mock_msg.content = json.dumps({
+        "document_type": "invoice",
+        "payment_id": "pay_test123",
+        "amount_minor": 50000
+    })
+    mock_choice = MagicMock()
+    mock_choice.message = mock_msg
+    mock_resp = MagicMock()
+    mock_resp.choices = [mock_choice]
+
+    mock_client = MagicMock()
+    mock_client.chat.completions.create = AsyncMock(return_value=mock_resp)
+
+    with patch("groq.AsyncGroq", return_value=mock_client):
+        result = await provider.extract_evidence(pages)
+        assert result["document_type"] == "invoice"
+        assert result["payment_id"] == "pay_test123"
+
+
+@pytest.mark.asyncio
+async def test_groq_provider_malformed_json(tmp_path):
+    from backend.app.services.ai_provider import GroqProvider, ProcessedPageInput
+    from unittest.mock import AsyncMock, MagicMock
+
+    img_path = str(tmp_path / "page_001.png")
+    img = Image.new("RGB", (100, 100), "white")
+    img.save(img_path, "PNG")
+
+    provider = GroqProvider(api_key="gsk_test_key_123")
+    pages = [ProcessedPageInput(page_number=1, image_path=img_path, width=100, height=100)]
+
+    mock_msg = MagicMock()
+    mock_msg.content = "INVALID_NON_JSON_RESPONSE"
+    mock_choice = MagicMock()
+    mock_choice.message = mock_msg
+    mock_resp = MagicMock()
+    mock_resp.choices = [mock_choice]
+
+    mock_client = MagicMock()
+    mock_client.chat.completions.create = AsyncMock(return_value=mock_resp)
+
+    with patch("groq.AsyncGroq", return_value=mock_client):
+        with pytest.raises(ValueError, match="malformed non-JSON payload"):
+            await provider.extract_evidence(pages)
+

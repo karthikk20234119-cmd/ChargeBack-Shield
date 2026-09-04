@@ -351,7 +351,7 @@ async def test_audit_contains_no_credentials(async_db):
 @pytest.mark.asyncio
 async def test_zero_ai_and_razorpay_calls(async_db):
     """Verifies zero AI or Razorpay mutation calls occur during review."""
-    with patch("backend.app.services.ai_provider.OpenAIProvider.extract_evidence") as mock_ai, patch(
+    with patch("backend.app.services.ai_provider.GroqProvider.extract_evidence") as mock_ai, patch(
         "httpx.AsyncClient.post"
     ) as mock_http_post:
         await setup_dispute_for_review(async_db, "disp_rev_16")

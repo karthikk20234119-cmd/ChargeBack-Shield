@@ -42,7 +42,7 @@ Phase 8 Task 8.1 hardens the Chargeback Shield platform for secure production de
     "request_id": "4436fb49-b840-4b77-828b-43137ae562da"
   }
   ```
-- **Secret Redaction Logger (`backend/app/core/logging.py`)**: `redact_secrets()` sanitizes log outputs, redacting Razorpay keys (`rzp_live_*`, `rzp_test_*`), OpenAI keys (`sk-proj-*`), Bearer tokens, and passwords.
+- **Secret Redaction Logger (`backend/app/core/logging.py`)**: `redact_secrets()` sanitizes log outputs, redacting Razorpay keys (`rzp_live_*`, `rzp_test_*`), Groq keys (`gsk_*`), OpenAI keys (`sk-proj-*`), Bearer tokens, and passwords.
 
 ---
 

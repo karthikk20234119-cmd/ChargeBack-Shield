@@ -61,11 +61,13 @@ def test_no_credentials_exposed_in_metrics_or_summary():
     res_metrics = client.get("/api/observability/metrics")
     assert "rzp_live_" not in res_metrics.text
     assert "rzp_test_" not in res_metrics.text
+    assert "gsk_" not in res_metrics.text
     assert "sk-proj-" not in res_metrics.text
 
     res_summary = client.get("/api/observability/summary")
     assert "rzp_live_" not in res_summary.text
     assert "rzp_test_" not in res_summary.text
+    assert "gsk_" not in res_summary.text
     assert "sk-proj-" not in res_summary.text
 
 

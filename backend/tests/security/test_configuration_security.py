@@ -36,13 +36,13 @@ def test_cors_origins_parsing():
 
 def test_secret_redaction_utility():
     """Verifies static text secret redaction functions."""
-    raw_log = "Error accessing rzp_live_9988776655 with secret rzp_test_secret123 and sk-proj-openaisamplekey"
+    raw_log = "Error accessing rzp_live_9988776655 with secret rzp_test_secret123 and gsk_groqsamplekey123"
     redacted = redact_secrets(raw_log)
     assert "rzp_live_9988776655" not in redacted
     assert "rzp_test_secret123" not in redacted
-    assert "sk-proj-openaisamplekey" not in redacted
+    assert "gsk_groqsamplekey123" not in redacted
     assert "[REDACTED_RAZORPAY_KEY]" in redacted
-    assert "[REDACTED_OPENAI_KEY]" in redacted
+    assert "[REDACTED_GROQ_KEY]" in redacted
 
 
 def test_request_correlation_middleware():
@@ -125,4 +125,4 @@ def test_no_hardcoded_secrets_in_settings_defaults():
     """Verifies Settings default values do not contain live hardcoded credentials."""
     assert "rzp_live_" not in settings.RAZORPAY_KEY_ID
     assert "rzp_live_" not in settings.RAZORPAY_KEY_SECRET
-    assert "sk-live-" not in settings.OPENAI_API_KEY
+    assert "gsk_live" not in settings.GROQ_API_KEY

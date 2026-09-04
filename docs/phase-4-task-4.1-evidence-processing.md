@@ -76,7 +76,7 @@ Database table `extracted_evidence`:
 ---
 
 ## 7. Extraction Architecture
-- Supports `MockAIProvider` (deterministic, test-friendly mock) and `OpenAIProvider` (vision/OCR).
+- Supports `MockAIProvider` (deterministic, test-friendly mock) and `GroqProvider` (vision/OCR).
 - Accepts `ProcessedPageInput` items representing rasterized PNG pages.
 - Coerces raw model outputs into Pydantic `ExtractedFactSchema`.
 - Strips arbitrary model policy suggestions.

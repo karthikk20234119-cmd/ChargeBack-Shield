@@ -9,6 +9,7 @@ from fastapi import UploadFile
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
+import backend.app.models
 from backend.app.models.dispute import Dispute
 from backend.app.models.document import EvidenceDocument, ExtractedEvidence
 from backend.app.models.matching import MatchResult

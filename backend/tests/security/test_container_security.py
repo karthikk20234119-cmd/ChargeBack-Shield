@@ -23,6 +23,7 @@ def test_dockerfiles_contain_no_hardcoded_secrets():
 
         assert "rzp_live_" not in content, f"Hardcoded Razorpay live key in {df_path}"
         assert "rzp_test_" not in content, f"Hardcoded Razorpay test key in {df_path}"
+        assert "gsk_" not in content, f"Hardcoded Groq key in {df_path}"
         assert "sk-proj-" not in content, f"Hardcoded OpenAI key in {df_path}"
         assert "RAZORPAY_KEY_SECRET=" not in content, f"Secret assignment in {df_path}"
 

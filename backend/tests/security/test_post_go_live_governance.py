@@ -55,6 +55,6 @@ def test_operational_alert_acknowledgement_does_not_mutate_business_entity():
         assert res_alerts.status_code == 200
         alerts = res_alerts.json()
         if len(alerts) > 0:
-            alert_id = alerts[0]["id"]
+            alert_id = alerts[0].get("alert_id") or alerts[0].get("id")
             res_ack = client.post(f"/api/operations/alerts/{alert_id}/acknowledge")
             assert res_ack.status_code in [200, 404]

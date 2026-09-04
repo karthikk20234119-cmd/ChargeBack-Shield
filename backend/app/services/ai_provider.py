@@ -31,27 +31,28 @@ class AIProvider(Protocol):
         ...
 
 
-class OpenAIProvider:
+class GroqProvider:
     """
-    OpenAI Multimodal Vision Provider using official AsyncOpenAI SDK contract.
+    Groq Multimodal Vision Provider using official AsyncGroq SDK contract.
     Processes page images using base64 data URIs and strict structured JSON prompts.
     """
-    def __init__(self, model_name: str = "gpt-4o-mini", api_key: Optional[str] = None):
-        self.model_name = model_name
-        self.api_key = api_key or settings.OPENAI_API_KEY
+    def __init__(self, model_name: Optional[str] = None, api_key: Optional[str] = None, timeout: float = 30.0):
+        self.model_name = settings.GROQ_MODEL if model_name is None else model_name
+        self.api_key = settings.GROQ_API_KEY if api_key is None else api_key
         self.prompt_version = EXTRACTION_PROMPT_VERSION
+        self.timeout = timeout
 
     async def extract_evidence(
         self,
         pages: List[ProcessedPageInput],
         document_hint: Optional[str] = None
     ) -> Dict[str, Any]:
-        from openai import AsyncOpenAI
+        from groq import AsyncGroq, GroqError, AuthenticationError, RateLimitError, APIConnectionError, APITimeoutError
 
         if not self.api_key or "sample" in self.api_key:
-            raise ValueError("OpenAI API key is not configured.")
+            raise ValueError("Groq API key is not configured.")
 
-        client = AsyncOpenAI(api_key=self.api_key)
+        client = AsyncGroq(api_key=self.api_key, timeout=self.timeout)
 
         # Build message content array with images
         content_items: List[Dict[str, Any]] = [
@@ -68,32 +69,43 @@ class OpenAIProvider:
             content_items.append({
                 "type": "image_url",
                 "image_url": {
-                    "url": f"data:image/png;base64,{b64_data}",
-                    "detail": "high"
+                    "url": f"data:image/png;base64,{b64_data}"
                 }
             })
 
         try:
             response = await client.chat.completions.create(
                 model=self.model_name,
-                response_format={"type": "json_object"},
                 messages=[
                     {"role": "system", "content": SYSTEM_EXTRACTION_PROMPT},
                     {"role": "user", "content": content_items}
                 ],
-                temperature=0.0
+                temperature=0.0,
+                max_tokens=600
             )
 
             raw_text = response.choices[0].message.content or "{}"
-            parsed_json = json.loads(raw_text)
+            cleaned_text = raw_text.strip()
+            if cleaned_text.startswith("```"):
+                lines = cleaned_text.splitlines()
+                if lines[0].startswith("```"):
+                    lines = lines[1:]
+                if lines and lines[-1].startswith("```"):
+                    lines = lines[:-1]
+                cleaned_text = "\n".join(lines).strip()
+
+            parsed_json = json.loads(cleaned_text)
             return parsed_json
 
         except json.JSONDecodeError as exc:
-            logger.error(f"OpenAI raw response failed JSON decode: {str(exc)}")
-            raise ValueError("OpenAI returned malformed non-JSON payload")
+            logger.error(f"Groq raw response failed JSON decode: {str(exc)}")
+            raise ValueError("Groq returned malformed non-JSON payload") from exc
+        except (AuthenticationError, RateLimitError, APIConnectionError, APITimeoutError) as exc:
+            logger.error(f"Groq API error ({type(exc).__name__}): {str(exc)}")
+            raise RuntimeError(f"Groq Provider API error ({type(exc).__name__}): {str(exc)}") from exc
         except Exception as exc:
-            logger.error(f"OpenAI API call failed: {str(exc)}")
-            raise RuntimeError(f"OpenAI Provider execution error: {str(exc)}")
+            logger.error(f"Groq API call failed: {str(exc)}")
+            raise RuntimeError(f"Groq Provider execution error: {str(exc)}") from exc
 
 
 class MockAIProvider:

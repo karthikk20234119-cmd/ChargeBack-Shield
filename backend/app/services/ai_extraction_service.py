@@ -30,7 +30,7 @@ from backend.app.schemas.extraction import EvidenceFactItem, ExtractedFactSchema
 from backend.app.services.ai_provider import (
     AIProvider,
     MockAIProvider,
-    OpenAIProvider,
+    GroqProvider,
     ProcessedPageInput,
 )
 from backend.app.utils.normalization import (
@@ -129,12 +129,12 @@ async def execute_ai_extraction(
     if provider is None:
         if (
             settings.ENVIRONMENT in ("test", "testing")
-            or not settings.OPENAI_API_KEY
-            or "sample" in settings.OPENAI_API_KEY
+            or not settings.GROQ_API_KEY
+            or "sample" in settings.GROQ_API_KEY
         ):
             provider = MockAIProvider(mock_scenario=document_hint)
         else:
-            provider = OpenAIProvider()
+            provider = GroqProvider()
 
     # 5. Execute Provider Extraction
     try:

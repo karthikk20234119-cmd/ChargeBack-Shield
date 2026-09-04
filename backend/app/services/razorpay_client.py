@@ -213,8 +213,10 @@ class HttpRazorpayClient:
         self._auth = (settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET)
         self._max_retries = settings.RAZORPAY_MAX_RETRIES
         self._timeout = httpx.Timeout(
+            timeout=settings.RAZORPAY_READ_TIMEOUT,
             connect=settings.RAZORPAY_CONNECT_TIMEOUT,
             read=settings.RAZORPAY_READ_TIMEOUT,
+            write=settings.RAZORPAY_READ_TIMEOUT,
             pool=10.0,
         )
         # Maximum wait time for Retry-After header (seconds)

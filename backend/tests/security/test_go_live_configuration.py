@@ -45,5 +45,6 @@ def test_env_templates_contain_placeholders_only():
                 content = f.read()
             assert "rzp_live_" not in content
             assert "rzp_test_" not in content
+            assert "gsk_" not in content
             assert "sk-proj-" not in content
             assert "RAZORPAY_KEY_ID" in content

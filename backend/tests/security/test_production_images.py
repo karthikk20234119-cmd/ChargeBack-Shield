@@ -18,6 +18,7 @@ def test_no_secrets_embedded_in_dockerfiles():
             content = f.read()
         assert "rzp_live_" not in content
         assert "rzp_test_" not in content
+        assert "gsk_" not in content
         assert "sk-proj-" not in content
 
 

@@ -10,6 +10,7 @@ from typing import Any, Dict
 SECRET_PATTERNS = [
     (re.compile(r"rzp_live_[a-zA-Z0-9]+"), "[REDACTED_RAZORPAY_KEY]"),
     (re.compile(r"rzp_test_[a-zA-Z0-9]+"), "[REDACTED_RAZORPAY_KEY]"),
+    (re.compile(r"gsk_[a-zA-Z0-9_\-]+"), "[REDACTED_GROQ_KEY]"),
     (re.compile(r"sk-proj-[a-zA-Z0-9_\-]+"), "[REDACTED_OPENAI_KEY]"),
     (re.compile(r"(?i)bearer\s+[a-zA-Z0-9\._\-]+"), "Bearer [REDACTED_TOKEN]"),
     (re.compile(r"(?i)password\s*=\s*['\"]?[^\s'\"]+['\"]?"), "password=[REDACTED]"),

@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-26T16:42:40.781309",
+  "evaluated_at": "2026-09-04T15:29:08.537898",
   "policy_version": "cb13.1-v1.0",
   "metric_definitions": {
     "parseable_case_policy_accuracy": {
@@ -802,7 +802,7 @@
       "policy_correct": true,
       "requires_human_review": false,
       "critical_findings": [
-        "Temporal violation: Delivery date is in the future relative to evaluation reference date"
+        "Invalid delivery timeline: Delivery date is in the future relative to evaluation reference date"
       ]
     },
     {
@@ -857,7 +857,7 @@
       "policy_correct": true,
       "requires_human_review": false,
       "critical_findings": [
-        "Temporal violation: Delivery date is in the future relative to evaluation reference date"
+        "Invalid delivery timeline: Delivery date is in the future relative to evaluation reference date"
       ]
     },
     {
@@ -912,7 +912,7 @@
       "policy_correct": true,
       "requires_human_review": false,
       "critical_findings": [
-        "Temporal violation: Delivery date is in the future relative to evaluation reference date"
+        "Invalid delivery timeline: Delivery date is in the future relative to evaluation reference date"
       ]
     },
     {
@@ -967,7 +967,7 @@
       "policy_correct": true,
       "requires_human_review": false,
       "critical_findings": [
-        "Temporal violation: Delivery date is in the future relative to evaluation reference date"
+        "Invalid delivery timeline: Delivery date is in the future relative to evaluation reference date"
       ]
     },
     {
@@ -1000,7 +1000,7 @@
       "policy_correct": true,
       "requires_human_review": true,
       "critical_findings": [
-        "Prompt injection warning flagged: Requires human review."
+        "Adversarial text or prompt injection attempt detected in raw document payload."
       ]
     },
     {
@@ -1012,7 +1012,7 @@
       "requires_human_review": false,
       "critical_findings": [
         "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
-        "Prompt injection warning flagged: Requires human review."
+        "Adversarial text or prompt injection attempt detected in raw document payload."
       ]
     },
     {
@@ -1024,7 +1024,7 @@
       "requires_human_review": false,
       "critical_findings": [
         "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
-        "Prompt injection warning flagged: Requires human review."
+        "Adversarial text or prompt injection attempt detected in raw document payload."
       ]
     },
     {
@@ -1036,7 +1036,7 @@
       "requires_human_review": false,
       "critical_findings": [
         "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
-        "Prompt injection warning flagged: Requires human review."
+        "Adversarial text or prompt injection attempt detected in raw document payload."
       ]
     },
     {
@@ -1048,7 +1048,7 @@
       "requires_human_review": false,
       "critical_findings": [
         "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
-        "Prompt injection warning flagged: Requires human review."
+        "Adversarial text or prompt injection attempt detected in raw document payload."
       ]
     },
     {
@@ -1060,7 +1060,7 @@
       "requires_human_review": false,
       "critical_findings": [
         "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
-        "Prompt injection warning flagged: Requires human review."
+        "Adversarial text or prompt injection attempt detected in raw document payload."
       ]
     },
     {
@@ -1072,7 +1072,7 @@
       "requires_human_review": false,
       "critical_findings": [
         "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
-        "Prompt injection warning flagged: Requires human review."
+        "Adversarial text or prompt injection attempt detected in raw document payload."
       ]
     },
     {
@@ -1084,7 +1084,7 @@
       "requires_human_review": false,
       "critical_findings": [
         "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
-        "Prompt injection warning flagged: Requires human review."
+        "Adversarial text or prompt injection attempt detected in raw document payload."
       ]
     },
     {
@@ -1096,7 +1096,7 @@
       "requires_human_review": false,
       "critical_findings": [
         "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
-        "Prompt injection warning flagged: Requires human review."
+        "Adversarial text or prompt injection attempt detected in raw document payload."
       ]
     },
     {
@@ -1108,7 +1108,7 @@
       "requires_human_review": false,
       "critical_findings": [
         "Monetary contradiction detected: Invoice amount in minor units does not match disputed charge.",
-        "Prompt injection warning flagged: Requires human review."
+        "Adversarial text or prompt injection attempt detected in raw document payload."
       ]
     },
     {
@@ -1118,7 +1118,9 @@
       "actual_policy": "HUMAN_REVIEW",
       "policy_correct": false,
       "requires_human_review": true,
-      "critical_findings": []
+      "critical_findings": [
+        "No AI-extracted evidence documents exist for this dispute."
+      ]
     },
     {
       "case_id": "case_0092",
@@ -1127,7 +1129,9 @@
       "actual_policy": "HUMAN_REVIEW",
       "policy_correct": false,
       "requires_human_review": true,
-      "critical_findings": []
+      "critical_findings": [
+        "No AI-extracted evidence documents exist for this dispute."
+      ]
     },
     {
       "case_id": "case_0093",
@@ -1136,7 +1140,9 @@
       "actual_policy": "HUMAN_REVIEW",
       "policy_correct": false,
       "requires_human_review": true,
-      "critical_findings": []
+      "critical_findings": [
+        "No AI-extracted evidence documents exist for this dispute."
+      ]
     },
     {
       "case_id": "case_0094",
@@ -1145,7 +1151,9 @@
       "actual_policy": "HUMAN_REVIEW",
       "policy_correct": false,
       "requires_human_review": true,
-      "critical_findings": []
+      "critical_findings": [
+        "No AI-extracted evidence documents exist for this dispute."
+      ]
     },
     {
       "case_id": "case_0095",
@@ -1154,7 +1162,9 @@
       "actual_policy": "HUMAN_REVIEW",
       "policy_correct": false,
       "requires_human_review": true,
-      "critical_findings": []
+      "critical_findings": [
+        "No AI-extracted evidence documents exist for this dispute."
+      ]
     },
     {
       "case_id": "case_0096",
@@ -1163,7 +1173,9 @@
       "actual_policy": "HUMAN_REVIEW",
       "policy_correct": false,
       "requires_human_review": true,
-      "critical_findings": []
+      "critical_findings": [
+        "No AI-extracted evidence documents exist for this dispute."
+      ]
     },
     {
       "case_id": "case_0097",
@@ -1172,7 +1184,9 @@
       "actual_policy": "HUMAN_REVIEW",
       "policy_correct": false,
       "requires_human_review": true,
-      "critical_findings": []
+      "critical_findings": [
+        "No AI-extracted evidence documents exist for this dispute."
+      ]
     },
     {
       "case_id": "case_0098",
@@ -1181,7 +1195,9 @@
       "actual_policy": "HUMAN_REVIEW",
       "policy_correct": false,
       "requires_human_review": true,
-      "critical_findings": []
+      "critical_findings": [
+        "No AI-extracted evidence documents exist for this dispute."
+      ]
     },
     {
       "case_id": "case_0099",
@@ -1190,7 +1206,9 @@
       "actual_policy": "HUMAN_REVIEW",
       "policy_correct": false,
       "requires_human_review": true,
-      "critical_findings": []
+      "critical_findings": [
+        "No AI-extracted evidence documents exist for this dispute."
+      ]
     },
     {
       "case_id": "case_0100",
@@ -1199,7 +1217,9 @@
       "actual_policy": "HUMAN_REVIEW",
       "policy_correct": false,
       "requires_human_review": true,
-      "critical_findings": []
+      "critical_findings": [
+        "No AI-extracted evidence documents exist for this dispute."
+      ]
     }
   ]
 }
