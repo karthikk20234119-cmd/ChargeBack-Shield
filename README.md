@@ -530,7 +530,9 @@ Generate locally
 
 ## 📜 License
 
-Internal / Hackathon Project — All rights reserved.
+This project is licensed under the **[MIT License](LICENSE)** — you are free to use, modify, and distribute this software with proper attribution.
+
+> Copyright © 2026 **Karthik**. See [LICENSE](LICENSE) for full details.
 
 ---
 
