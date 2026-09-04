@@ -1,6 +1,11 @@
-#🛡️ Chargeback Shield
+<div align="center">
+
+# 🛡️ Chargeback Shield
+
 
 **Explainable, Deterministic & Secure Dispute Intelligence Platform**
+
+<br/>
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB.svg)
@@ -11,7 +16,10 @@
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg)
 ![Production](https://img.shields.io/badge/Production-Ready-green.svg)
 
+</div>
+
 ---
+
 
 ## 🚀 Overview
 
