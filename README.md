@@ -15,6 +15,8 @@
 ![Tests](https://img.shields.io/badge/Tests-698%2F698%20PASSED-brightgreen.svg)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg)
 ![Production](https://img.shields.io/badge/Production-Ready-green.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 
 </div>
 
